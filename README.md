@@ -1,4 +1,4 @@
-# ansible-arch-playbook
+# ansible-arch-playbooks
 Ansible playbooks for Arch-based installations and configurations
 
 Install requirements
