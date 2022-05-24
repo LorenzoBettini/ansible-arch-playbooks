@@ -21,6 +21,7 @@
     - include: tasks/gnome-packages.yml
     - include: tasks/gnome-arch-extensions.yml
     - include: tasks/gnome-configurations.yml
+    - include: tasks/gnome-templates.yml
     - include: tasks/flatpak.yml
     - include: tasks/gnome-extension-manager.yml
     - include: tasks/guake.yml

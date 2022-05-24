@@ -1,0 +1,11 @@
+- name: Create Templates directory
+  ansible.builtin.file:
+    path: '~/Templates'
+    state: directory
+    mode: 0755
+
+- name: Create Templates
+  ansible.builtin.copy:
+    content: ""
+    dest: '~/Templates/New File'
+    mode: 0644
