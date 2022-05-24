@@ -1,0 +1,10 @@
+- name: Install Pamac
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - snapd-glib
+    - snapd
+    - pamac-all
+# Installing archlinux-appstream-data-pamac will remove: archlinux-appstream-data
