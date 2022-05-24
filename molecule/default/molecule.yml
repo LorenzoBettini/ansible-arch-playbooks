@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: requirements.yml
+    requirements-file: requirements.yml
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: ${MOLECULE_DISTRO:-arch-gnome}-instance
+    image: custom-${MOLECULE_DISTRO:-arch-gnome}-ansible
+    dockerfile: ../docker/Dockerfile
+    command: ""
+    privileged: true
+    build_image: true
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../${MOLECULE_DISTRO:-arch-gnome}/converge.yml
+verifier:
+  name: ansible

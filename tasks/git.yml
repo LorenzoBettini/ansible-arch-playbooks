@@ -1,8 +1,7 @@
 - name: Install Git Packages
   become: yes
-  pacman:
+  community.general.pacman:
     state: present
     name:
     - git
     - tk # required by git gui and gitk
-
