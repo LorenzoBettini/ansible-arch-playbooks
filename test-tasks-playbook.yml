@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/gnome-packages.yml
+    - include: tasks/vscode.yml

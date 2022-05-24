@@ -24,3 +24,4 @@
     - include: tasks/flatpak.yml
     - include: tasks/gnome-extension-manager.yml
     - include: tasks/docker.yml
+    - include: tasks/vscode.yml
