@@ -1,0 +1,15 @@
+- name: Install Main Packages
+  become: yes
+  pacman:
+    state: present
+    name:
+    - base-devel
+    - vim
+    - curl
+    - wget
+    - curl
+    - gkrellm
+    - net-tools
+    - unison
+    - thunderbird
+

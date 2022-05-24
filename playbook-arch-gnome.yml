@@ -17,4 +17,5 @@
     - include: tasks/git.yml
     - include: tasks/yay.yml 
     - include: tasks/update-grub.yml
+    - include: tasks/main-packages.yml
 
