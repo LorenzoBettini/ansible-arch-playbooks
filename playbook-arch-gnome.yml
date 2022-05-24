@@ -15,4 +15,5 @@
   tasks:
     - include: tasks/aur-user.yml
     - include: tasks/git.yml
+    - include: tasks/yay.yml 
 
