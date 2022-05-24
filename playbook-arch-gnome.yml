@@ -18,4 +18,7 @@
     - include: tasks/yay.yml 
     - include: tasks/update-grub.yml
     - include: tasks/main-packages.yml
+    - include: tasks/gnome-packages.yml
+    - include: tasks/gnome-arch-extensions.yml
+    - include: tasks/gnome-configurations.yml
     - include: tasks/docker.yml
