@@ -7,6 +7,14 @@
     - dconf-editor
     - python-psutil
 
+- name: Install Gnome Packages from AUR
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - gnome-text-editor
+
 - name: Uninstall Gnome terminal...
   become: yes
   community.general.pacman:
