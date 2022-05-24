@@ -28,5 +28,6 @@
     - include: tasks/zsh-antigen.yml
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
+    - include: tasks/dropbox.yml
     - include: tasks/docker.yml
     - include: tasks/vscode.yml
