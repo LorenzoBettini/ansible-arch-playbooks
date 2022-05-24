@@ -1,0 +1,6 @@
+- name: Install Guake Drop-down Terminal
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - guake
