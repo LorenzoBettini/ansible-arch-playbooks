@@ -1,0 +1,20 @@
+- name: Install Kde Packages
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - latte-dock
+    - kate
+    - okular
+    - yakuake
+    - korganizer
+    - kaddressbook
+    - kwalletmanager
+    - ksshaskpass
+    - kdepim-addons
+    - kio-gdrive
+    - dolphin-plugins
+    - plasma-systemmonitor
+    - kdeplasma-addons
+    - kcalc
+    - plasma-workspace-wallpapers
