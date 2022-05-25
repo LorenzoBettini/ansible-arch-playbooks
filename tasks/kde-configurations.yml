@@ -39,6 +39,19 @@
     option: LayoutName
     value: compact
 
+- name: Ctrl+Alt+T for Konsole
+  community.general.ini_file:
+    path: ~/.config/kglobalshortcutsrc
+    section: org.kde.konsole.desktop
+    option: '{{ item.option }}'
+    value: '{{ item.value }}'
+    no_extra_spaces: yes
+  loop:
+  - option: _k_friendly_name
+    value: Konsole
+  - option: _launch
+    value: Ctrl+Alt+T,Ctrl+Alt+T,Konsole
+
 - name: Meta+X for ExposeAll (Toggle Present Windows (All desktops))
   community.general.ini_file:
     path: ~/.config/kglobalshortcutsrc
