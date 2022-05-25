@@ -6,6 +6,7 @@
     - gnome-tweaks
     - dconf-editor
     - python-psutil
+    - xdg-utils # required for xdg-mime below
 
 - name: Install Gnome Packages from AUR
   become: yes
