@@ -10,14 +10,24 @@
     key: "/org/freedesktop/tracker/miner/files/ignored-directories"
     value: "['po', 'CVS', 'core-dumps', 'lost+found', 'bin', 'test-bin', 'bin-test', 'target', 'xtend-gen', 'src-gen', 'cache', 'node_modules', 'node_packages', 'thunderbird']"
 
+- name: Make sure Tracker 3 is installed
+  become: true
+  ansible.builtin.package:
+    state: present
+    name:
+    - tracker3
+    - tracker3-miners
+
+- name: Make sure Tracker 2 is NOT installed
+  become: true
+  ansible.builtin.package:
+    state: absent
+    name:
+    - tracker
+    - tracker-miners
+
 - name: Disable Tracker Extract 3 for user
   ansible.builtin.systemd:
     name: tracker-extract-3
-    scope: user
-    masked: yes
-
-- name: Disable Tracker Extract for user
-  ansible.builtin.systemd:
-    name: tracker-extract
     scope: user
     masked: yes
