@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/gnome-tracker.yml
+    - include: tasks/gnome-packages.yml
