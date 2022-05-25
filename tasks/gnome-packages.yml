@@ -6,6 +6,7 @@
     - gnome-tweaks
     - dconf-editor
     - python-psutil
+    - xdg-utils # required for xdg-mime below
 
 - name: Install Gnome Packages from AUR
   become: yes
@@ -14,6 +15,19 @@
     state: present
     name:
     - gnome-text-editor
+
+- name: Ensure xdg mime default for text files application is set
+  ansible.builtin.command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
+  changed_when: False
+  with_subelements:
+    - "{{ xdg_mime_defaults }}"
+    - mime_types
+  vars:
+    xdg_mime_defaults:
+    - desktop_file: org.gnome.TextEditor.desktop
+      mime_types:
+      - text/plain
+      - text/xml
 
 - name: Uninstall Gnome terminal...
   become: yes
