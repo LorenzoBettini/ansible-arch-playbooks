@@ -1,0 +1,21 @@
+- name: Install Gnome Extensions
+  ansible.builtin.include_role:
+    name: petermosmans.customize-gnome
+  vars:
+    gnome_extensions:
+      - id: 19 # User Theme "user-theme@gnome-shell-extensions.gcampax.github.com"
+      - id: 615 # AppIndicator and KStatusNotifierItem Support
+      - id: 3740 # Magic Lamp "compiz-alike-magic-lamp-effect@hermes83.github.com"
+      - id: 307 # dash-to-dock "dash-to-dock@micxgx.gmail.com"
+      - id: 973 # switcher "switcher@landau.fi"
+      - id: 4033 # x11-gestures "x11gestures@joseexposito.github.io" requires touchegg
+      - id: 779 # clipboard-indicator
+      - id: 1112 # screenshot-tool
+      - id: 3088 # extension-list
+      - id: 7 # removable-drive-menu
+      - id: 2890 # Tray Icons: Reloaded, works with Dropbox in Gnome 42!
+      - id: 97 # Coverflow Alt-Tab
+      - id: 16 # Auto Move Windows
+      - id: 10 # windowNavigator
+      # - id: 120 # system-monitor
+      # - id: 3843 # just-perfection

@@ -1,7 +1,7 @@
-- name: Install update-grub
+- name: Install Chrome
   become: yes
   become_user: aur_builder
   kewlfft.aur.aur:
     state: present
     name:
-    - update-grub
+    - google-chrome

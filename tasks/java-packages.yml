@@ -1,0 +1,61 @@
+- name: Remove Java Package without version
+  become: yes
+  community.general.pacman:
+    state: absent
+    name:
+    - jdk-openjdk # This is now JDK 18
+    - openjdk-src
+    - openjdk-doc
+
+- name: Install Java Packages
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - jdk17-openjdk # the first one will be the default
+    - openjdk17-src
+    - openjdk17-doc
+    - jdk8-openjdk
+    - openjdk8-src
+    - openjdk8-doc
+    - jdk11-openjdk
+    - openjdk11-src
+    - openjdk11-doc
+
+- name: Create Java links directory
+  ansible.builtin.file:
+    path: '~/.jdk'
+    state: directory
+    mode: 0775
+
+- name: Create Java links
+  ansible.builtin.file:
+    src: '/usr/lib/jvm/java-{{ item }}-openjdk'
+    dest: '~/.jdk/jdk{{ item }}'
+    state: link
+  loop:
+    - 8
+    - 11
+    - 17
+
+- name: Remove old Java links
+  ansible.builtin.file:
+    path: '~/.jdk/jdk{{ item }}'
+    state: absent
+  loop:
+    - 16
+
+# This should not be required
+# - name: Install libwebkit2gtk (for Eclipse SWT Browser)
+#   become: yes
+#   pacman:
+#     state: present
+#     name: libwebkit2gtk-4.0-37
+#   register: packageout
+
+# - debug: msg="{{ packageout.msg }}"
+#   when: packageout.msg is defined
+
+- name: Install Maven
+  ansible.builtin.include_role:
+    name: gantsign.maven

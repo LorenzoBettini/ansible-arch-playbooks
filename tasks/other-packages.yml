@@ -1,0 +1,29 @@
+- name: Uninstall mlocate and exfat-utils
+  become: yes
+  community.general.pacman:
+    state: absent
+    name:
+    - mlocate
+    - exfat-utils
+
+- name: Install Other Packages
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - emacs
+    - homebank
+    - vlc
+    - aribb24 # for MPEG
+    - meld
+    - iotop
+    - nethogs
+    - unrar
+    - hyphen-it
+    - hunspell-it
+    - exfatprogs
+    - ispell
+    - gimp
+    - tree
+    - plocate
+    - eog # Eyes of Gnome

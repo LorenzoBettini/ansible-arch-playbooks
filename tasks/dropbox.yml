@@ -1,0 +1,12 @@
+- name: Install Dropbox
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    skip_pgp_check: yes
+    # it fails with yay: "This option is only available with 'makepkg'."
+    use: makepkg
+    state: present
+    name:
+    - dropbox
+    - dropbox-cli
+    - nautilus-dropbox

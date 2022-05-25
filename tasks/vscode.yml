@@ -1,0 +1,6 @@
+- name: Install VS Code
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - code

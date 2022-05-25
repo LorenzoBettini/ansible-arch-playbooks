@@ -1,0 +1,8 @@
+- name: Install LibreOffice Packages
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - libreoffice-fresh
+    - hunspell-en_US
+    - hunspell-it
