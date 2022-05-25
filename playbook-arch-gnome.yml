@@ -33,3 +33,5 @@
     - include: tasks/dropbox.yml
     - include: tasks/docker.yml
     - include: tasks/vscode.yml
+    - include: tasks/libreoffice.yml
+    - include: tasks/other-packages.yml
