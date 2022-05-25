@@ -1,0 +1,9 @@
+- name: Install Latex Packages
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - texlive-core
+    - texlive-latexextra
+    - texlive-bibtexextra
+    - texlive-fontsextra
