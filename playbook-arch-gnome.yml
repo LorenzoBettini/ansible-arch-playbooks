@@ -35,3 +35,4 @@
     - include: tasks/vscode.yml
     - include: tasks/libreoffice.yml
     - include: tasks/other-packages.yml
+    - include: tasks/skype.yml
