@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/kde-ssh.yml
+    - include: tasks/pacman.yml

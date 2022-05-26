@@ -14,6 +14,7 @@
       changed_when: False
   tasks:
     - include: tasks/aur-user.yml
+    - include: tasks/pacman.yml
     - include: tasks/git.yml
     - include: tasks/yay.yml 
     - include: tasks/update-grub.yml
