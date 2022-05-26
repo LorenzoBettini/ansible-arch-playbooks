@@ -49,8 +49,8 @@
     mode: 0755
 
 - name: Copy ssh-agent-shutdown.sh
-  ansible.builtin.become: yes
-  copy:
+  become: yes
+  ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/kde-ssh/ssh-agent-shutdown.sh"
     dest: "/etc/xdg/plasma-workspace/shutdown/"
     mode: 0755
