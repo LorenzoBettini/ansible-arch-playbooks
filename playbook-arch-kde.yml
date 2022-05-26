@@ -33,6 +33,7 @@
     - include: tasks/libreoffice.yml
     - include: tasks/other-packages.yml
     - include: tasks/skype.yml
+    - include: tasks/patch-xdg-autostart.yml
     - block:
       - include: tasks/latex.yml
       tags: latex

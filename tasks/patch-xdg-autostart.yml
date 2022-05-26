@@ -1,0 +1,22 @@
+- name: Patch tracker autostart NOT in KDE
+  become: true
+  community.general.ini_file:
+    path: '{{ item.path }}'
+    mode: 0644
+    section: Desktop Entry
+    option: OnlyShowIn
+    value: GNOME;XFCE;Unity;
+    no_extra_spaces: yes
+  loop:
+  - path: /etc/xdg/autostart/tracker-miner-fs-3.desktop
+  - path: /etc/xdg/autostart/tracker-miner-rss-3.desktop
+
+- name: Patch baloo autostart ONLY in KDE
+  become: true
+  community.general.ini_file:
+    path: /etc/xdg/autostart/baloo_file.desktop
+    mode: 0644
+    section: Desktop Entry
+    option: OnlyShowIn
+    value: KDE;
+    no_extra_spaces: yes
