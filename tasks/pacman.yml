@@ -6,15 +6,11 @@
     allow_no_value: yes
     section: options
     option: '{{ item.option }}'
-    value: '{{ item.value }}'
     no_extra_spaces: yes
   loop:
   - option: Color
-    value: null
   - option: ILoveCandy
-    value: null
   - option: VerbosePkgLists
-    value: null
 
 - name: Configure Pacman other options
   become: yes
