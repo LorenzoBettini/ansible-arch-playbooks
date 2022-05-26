@@ -1,0 +1,37 @@
+- name: Install kwalletmanager and ksshaskpass
+  become: yes
+  ansible.builtin.package:
+    state: present
+    name:
+    - kwalletmanager
+    - ksshaskpass
+
+# inspired by AUR package plasma-workspace-agent-ssh
+
+- name: Create /etc/xdg/plasma-workspace/env/
+  become: yes
+  ansible.builtin.file:
+    path: '/etc/xdg/plasma-workspace/env/'
+    mode: 0755
+    state: directory
+
+- name: Create /etc/xdg/plasma-workspace/shutdown/
+  become: yes
+  ansible.builtin.file:
+    path: '/etc/xdg/plasma-workspace/shutdown/'
+    mode: 0755
+    state: directory
+
+- name: Copy ssh-agent-startup.sh
+  become: yes
+  copy:
+    src: "{{ playbook_dir }}/tasks/files/kde-ssh/ssh-agent-startup.sh"
+    dest: "/etc/xdg/plasma-workspace/env/"
+    mode: 0755
+
+- name: Copy ssh-agent-shutdown.sh
+  become: yes
+  copy:
+    src: "{{ playbook_dir }}/tasks/files/kde-ssh/ssh-agent-shutdown.sh"
+    dest: "/etc/xdg/plasma-workspace/shutdown/"
+    mode: 0755

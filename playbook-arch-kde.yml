@@ -20,6 +20,7 @@
     - include: tasks/main-packages.yml
     - include: tasks/kde-packages.yml
     - include: tasks/kde-configurations.yml
+    - include: tasks/kde-ssh.yml
     - include: tasks/flatpak.yml
     - include: tasks/zsh.yml
     - include: tasks/zsh-antigen.yml
