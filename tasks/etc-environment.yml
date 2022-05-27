@@ -1,0 +1,10 @@
+# ONLY if you plan to use only GNOME with some KDE applications
+# NOT if you plan to use also the full KDE Plasma DE
+- name: customize /etc/environment
+  become: yes
+  ansible.builtin.blockinfile:
+    path: "/etc/environment"
+    block: |
+      # for KDE applications in GNOME Wayland to be resizable
+      export QT_QPA_PLATFORM=xcb
+    mode: 0644
