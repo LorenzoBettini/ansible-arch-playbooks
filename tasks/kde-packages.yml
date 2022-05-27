@@ -5,6 +5,9 @@
     name:
     - latte-dock
     - kate
+    - ark
+    - konsole
+    - dolphin
     - okular
     - yakuake
     - korganizer
