@@ -18,6 +18,7 @@ jobs:
       matrix:
         playbookdistro:
           - arch-gnome
+          - arch-kde
 
     steps:
       - name: Check out the codebase.

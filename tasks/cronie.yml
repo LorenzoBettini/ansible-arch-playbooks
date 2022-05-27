@@ -1,0 +1,12 @@
+- name: Install cronie
+  become: yes
+  ansible.builtin.package:
+    state: present
+    name:
+    - cronie
+
+- name: Enable service cronie
+  become: yes
+  ansible.builtin.systemd:
+    name: cronie
+    enabled: yes
