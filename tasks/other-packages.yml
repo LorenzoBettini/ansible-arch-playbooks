@@ -27,3 +27,11 @@
     - tree
     - plocate
     - eog # Eyes of Gnome
+
+- name: Install other AUR packages
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - inxi
