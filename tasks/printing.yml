@@ -1,0 +1,31 @@
+- name: Install Printing packages
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - cups
+    - cups-filters
+    - cups-pdf
+    - cups-pk-helper
+    - libcups
+    - splix
+    - system-config-printer
+
+- name: Enable service CUPS
+  become: yes
+  ansible.builtin.systemd:
+    name: cups
+    enabled: yes
+
+- name: Install Printing drivers
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - foomatic-db
+    - foomatic-db-engine
+    - foomatic-db-gutenprint-ppds
+    - foomatic-db-nonfree
+    - foomatic-db-nonfree-ppds
+    - foomatic-db-ppds
+    - hplip

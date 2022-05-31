@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/pacman.yml
+    - include: tasks/printing.yml
