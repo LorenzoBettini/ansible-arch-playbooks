@@ -16,6 +16,7 @@
   ansible.builtin.systemd:
     name: cups
     enabled: yes
+    state: restarted
 
 - name: Install Printing drivers
   become: yes
