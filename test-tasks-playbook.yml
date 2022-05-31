@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/printing.yml
+    - include: tasks/other-packages.yml

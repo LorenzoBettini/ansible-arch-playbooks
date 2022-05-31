@@ -28,6 +28,12 @@
     - plocate
     - eog # Eyes of Gnome
 
+- name: Enable plocate-updatedb.timer
+  become: yes
+  ansible.builtin.systemd:
+    name: plocate-updatedb.timer
+    enabled: yes
+
 - name: Install other AUR packages
   become: yes
   become_user: aur_builder
