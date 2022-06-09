@@ -22,5 +22,12 @@
 - name: Do NOT enable service docker on boot
   become: yes
   ansible.builtin.systemd:
-    name: docker
+    name: docker.service
     enabled: no
+
+# This way, as soon as we run a docker command docker.service starts
+- name: Enable docker.socket on boot
+  become: yes
+  ansible.builtin.systemd:
+    name: docker.socket
+    enabled: yes
