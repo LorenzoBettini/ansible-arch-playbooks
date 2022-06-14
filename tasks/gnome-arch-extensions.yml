@@ -7,8 +7,8 @@
       - id: 615 # AppIndicator and KStatusNotifierItem Support
       - id: 3740 # Magic Lamp "compiz-alike-magic-lamp-effect@hermes83.github.com"
       - id: 307 # dash-to-dock "dash-to-dock@micxgx.gmail.com"
+      - id: 5004 # dash-to-dock-for-cosmic
       - id: 973 # switcher "switcher@landau.fi"
-      - id: 4033 # x11-gestures "x11gestures@joseexposito.github.io" requires touchegg
       - id: 779 # clipboard-indicator
       - id: 1112 # screenshot-tool
       - id: 3088 # extension-list
@@ -19,3 +19,4 @@
       - id: 10 # windowNavigator
       # - id: 120 # system-monitor
       # - id: 3843 # just-perfection
+      # - id: 4033 # x11-gestures "x11gestures@joseexposito.github.io" requires touchegg
