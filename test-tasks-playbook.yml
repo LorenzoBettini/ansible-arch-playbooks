@@ -1,4 +1,4 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/other-packages.yml
+    - include: tasks/gnome-packages.yml

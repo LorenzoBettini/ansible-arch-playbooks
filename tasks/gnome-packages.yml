@@ -7,7 +7,21 @@
     - dconf-editor
     - python-psutil
     - xdg-utils # required for xdg-mime below
-    - gnome-screenshot
+    - gnome-screenshot # the original screenshot application
+    - baobab
+    - eog
+    - evince
+    - file-roller
+    - gnome-backgrounds
+    - gnome-calculator
+    - gnome-calendar
+    - gnome-contacts
+    - gnome-logs
+    - gnome-photos
+    - gnome-remote-desktop
+    - gnome-system-monitor
+    - gnome-weather
+    - simple-scan
 
 - name: Install Gnome Packages from AUR
   become: yes
