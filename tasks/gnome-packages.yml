@@ -22,6 +22,14 @@
     - gnome-system-monitor
     - gnome-weather
     - simple-scan
+    - gvfs
+    - gvfs-afc
+    - gvfs-goa
+    - gvfs-google
+    - gvfs-gphoto2
+    - gvfs-mtp
+    - gvfs-nfs
+    - gvfs-smb
 
 - name: Install Gnome Packages from AUR
   become: yes
