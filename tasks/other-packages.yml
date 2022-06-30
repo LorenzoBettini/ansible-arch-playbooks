@@ -26,7 +26,7 @@
     - gimp
     - tree
     - plocate
-    - eog # Eyes of Gnome
+    - duf
 
 - name: Enable plocate-updatedb.timer
   become: yes
