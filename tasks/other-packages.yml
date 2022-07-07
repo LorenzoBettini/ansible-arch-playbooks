@@ -27,6 +27,7 @@
     - tree
     - plocate
     - duf
+    - libappindicator-gtk3
 
 - name: Enable plocate-updatedb.timer
   become: yes
