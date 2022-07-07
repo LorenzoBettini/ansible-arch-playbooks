@@ -1,4 +1,4 @@
-- name: Install Dropbox
+- name: Install Dropbox nautilus
   become: yes
   become_user: aur_builder
   kewlfft.aur.aur:
@@ -7,5 +7,4 @@
     use: makepkg
     state: present
     name:
-    - dropbox
-    - dropbox-cli
+    - nautilus-dropbox
