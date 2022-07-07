@@ -27,7 +27,8 @@
     - tree
     - plocate
     - duf
-    - libappindicator-gtk3
+    - libappindicator-gtk3 # for Variety in Wayland
+    - variety
 
 - name: Enable plocate-updatedb.timer
   become: yes
