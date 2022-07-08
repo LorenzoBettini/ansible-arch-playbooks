@@ -3,6 +3,7 @@
   community.general.pacman:
     state: present
     name:
+    - gnome-shell
     - gnome-tweaks
     - dconf-editor
     - python-psutil
