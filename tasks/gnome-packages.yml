@@ -33,6 +33,15 @@
     - gvfs-nfs
     - gvfs-smb
 
+- name: Gnome Shell version
+  ansible.builtin.command: "gnome-shell --version"
+  changed_when: False
+  register: command_output
+
+- name: Gnome Shell version show
+  ansible.builtin.debug:
+    var: command_output.stdout
+
 - name: Install Gnome Packages from AUR
   become: yes
   become_user: aur_builder
