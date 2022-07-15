@@ -20,6 +20,7 @@ or for KDE
 ansible-playbook -i local -v playbook-arch-kde.yml -K
 ```
 
+In case, you can skip a few steps, e.g., `--skip-tags latex`.
 
 For local quick testing of single tasks, include them in `test-tasks-playbook.yml` and then:
 
