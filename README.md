@@ -1,20 +1,31 @@
 # ansible-arch-playbooks
 Ansible playbooks for Arch-based installations and configurations
 
-Install requirements
+Install the needed packages:
+
+```
+sudo pacman -S git python-pip
+python3 -m pip install --user ansible
+```
+
+Make sure `$HOME/.local/bin` is in the PATH (because `pip` installs `ansible` there).
+
+Clone this repository.
+
+Install the requirements for the playbook:
 
 ```
 ansible-galaxy collection install -r requirements.yml
 ansible-galaxy install -r requirements.yml
 ```
 
-Run a playbook, e.g., for GNOME
+Run a playbook, e.g., for GNOME:
 
 ```
 ansible-playbook -i local -v playbook-arch-gnome.yml -K
 ```
 
-or for KDE
+or for KDE:
 
 ```
 ansible-playbook -i local -v playbook-arch-kde.yml -K
