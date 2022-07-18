@@ -11,5 +11,6 @@
     - gkrellm
     - net-tools
     - unison
+    - firefox
     - thunderbird
     - power-profiles-daemon
