@@ -15,7 +15,6 @@ Clone this repository.
 Install the requirements for the playbook:
 
 ```
-ansible-galaxy collection install -r requirements.yml
 ansible-galaxy install -r requirements.yml
 ```
 
