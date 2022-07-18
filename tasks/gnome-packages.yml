@@ -10,6 +10,7 @@
     - xdg-utils # required for xdg-mime below
     - gnome-screenshot # the original screenshot application
     - baobab
+    - deja-dup
     - eog
     - evince
     - evolution
