@@ -27,6 +27,7 @@
     - tree
     - plocate
     - duf
+    - noto-fonts
     - libappindicator-gtk3 # for Variety in Wayland
     - variety
     - powertop
