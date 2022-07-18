@@ -1,0 +1,13 @@
+- name: Install Firewall
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - firewalld
+    - python-pyqt5 # for firewall-applet
+
+- name: Enable firewalld
+  become: yes
+  ansible.builtin.systemd:
+    name: firewalld.service
+    enabled: yes

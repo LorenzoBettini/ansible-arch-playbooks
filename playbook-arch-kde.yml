@@ -19,6 +19,7 @@
     - include: tasks/yay.yml 
     - include: tasks/update-grub.yml
     - include: tasks/main-packages.yml
+    - include: tasks/firewall.yml
     - include: tasks/printing.yml
     - include: tasks/kde-packages.yml
     - include: tasks/kde-configurations.yml
