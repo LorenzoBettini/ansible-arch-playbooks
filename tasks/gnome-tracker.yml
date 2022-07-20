@@ -26,13 +26,14 @@
     - tracker
     - tracker-miners
 
-# Better to mask it at the system level
+# Better to mask it at the global level
 # so that it can be run also in a chroot environment
 # otherwise we get "Failed to connect to bus: No such file or directory"
 - name: Disable Tracker Extract 3 at system level
   become: yes
   ansible.builtin.systemd:
     name: tracker-extract-3
+    scope: global
     masked: yes
 
 #- name: Disable Tracker Extract 3 for user
