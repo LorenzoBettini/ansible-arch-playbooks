@@ -25,9 +25,10 @@
   - option: ParallelDownloads
     value: 5
 
-- name: Install pacman-contrib
+- name: Install pacman programs
   become: yes
   community.general.pacman:
     state: present
     name:
     - pacman-contrib
+    - reflector
