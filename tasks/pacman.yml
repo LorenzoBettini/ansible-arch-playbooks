@@ -24,3 +24,10 @@
   loop:
   - option: ParallelDownloads
     value: 5
+
+- name: Install pacman-contrib
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - pacman-contrib
