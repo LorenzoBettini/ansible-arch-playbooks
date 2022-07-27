@@ -40,5 +40,7 @@ prompt_context () { }
 
 export PATH=$HOME/.local/bin:$PATH
 
+export _JAVA_OPTIONS=-Djava.net.preferIPv4Stack=true
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
