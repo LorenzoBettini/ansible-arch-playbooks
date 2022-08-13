@@ -17,6 +17,7 @@
     - aribb24 # for MPEG
     - meld
     - iotop
+    - lsof
     - nethogs
     - unrar
     - hyphen-it
