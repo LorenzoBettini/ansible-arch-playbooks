@@ -11,3 +11,10 @@
   ansible.builtin.systemd:
     name: firewalld.service
     enabled: yes
+
+- name: Copy Fedora Workstation zone configuration
+  become: yes
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/tasks/files/firewall/"
+    dest: "/usr/lib/firewalld/zones/"
+    mode: 0644
