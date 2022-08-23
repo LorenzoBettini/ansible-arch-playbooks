@@ -1,0 +1,13 @@
+- name: Install Touchegg from AUR
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - touchegg
+
+- name: Enable Touchegg on boot
+  become: yes
+  ansible.builtin.service:
+    name: touchegg
+    enabled: yes

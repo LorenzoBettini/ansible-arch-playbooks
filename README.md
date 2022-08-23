@@ -37,3 +37,9 @@ For local quick testing of single tasks, include them in `test-tasks-playbook.ym
 ```
 ansible-playbook -i local -v test-tasks-playbook.yml -K
 ```
+
+After running the main playbook (either for GNOME or KDE), possibly run additional tasks for specific installations/configurations, e.g.:
+
+```
+ansible-playbook -i local -v playbook-arch-kde-xorg.yml -K
+```
