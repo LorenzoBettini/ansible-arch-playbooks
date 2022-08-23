@@ -6,6 +6,11 @@ ENV LC_ALL C
 
 RUN pacman -Syu --noconfirm
 
+# make sure we use the updated keyring
+RUN pacman -S \
+    archlinux-keyring \
+    --noconfirm
+
 RUN pacman -S \
     python-pip \
     unzip \
