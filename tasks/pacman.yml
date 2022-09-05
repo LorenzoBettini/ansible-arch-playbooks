@@ -32,3 +32,12 @@
     name:
     - pacman-contrib
     - reflector
+
+- name: Install pacseek
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: makepkg
+    state: present
+    name:
+    - pacseek
