@@ -1,0 +1,7 @@
+- name: Install pacseek
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - pacseek
