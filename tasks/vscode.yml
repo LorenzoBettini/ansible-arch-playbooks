@@ -1,4 +1,8 @@
-- name: Install VS Code
+# Code - OSS — Official Arch Linux open-source release.
+# Ships a configuration enabling Open VSX.
+# https://github.com/microsoft/vscode
+# NOT AVAILABLE FOR ARM
+- name: Install VS Code (Code - OSS)
   become: yes
   community.general.pacman:
     state: present
