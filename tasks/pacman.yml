@@ -25,10 +25,18 @@
   - option: ParallelDownloads
     value: 5
 
-- name: Install pacman programs
+- name: Install pacman-contrib
   become: yes
   community.general.pacman:
     state: present
     name:
     - pacman-contrib
+
+# reflector is not available for arm
+- name: Install reflector
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
     - reflector
+  when: ansible_architecture != "aarch64"
