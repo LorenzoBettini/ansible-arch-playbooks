@@ -1,0 +1,9 @@
+# Visual Studio Code — Proprietary Microsoft-branded release.
+# https://code.visualstudio.com/
+- name: Install VS Code (Visual Studio Code)
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - visual-studio-code-bin
