@@ -34,7 +34,7 @@
     - include: tasks/zsh.yml
     - include: tasks/zsh-antigen.yml
     - include: tasks/zsh-gnome.yml
-#    - include: tasks/java-packages.yml
+    - include: tasks/java-latest-lts.yml
 #    - include: tasks/google-chrome.yml
 #    - include: tasks/dropbox.yml
 #    - include: tasks/dropbox-nautilus.yml
@@ -42,7 +42,7 @@
 #    - include: tasks/cronie.yml
 #    - include: tasks/recoll.yml
     - include: tasks/visual-studio-code.yml
-#    - include: tasks/libreoffice.yml
+    - include: tasks/libreoffice.yml
     - include: tasks/other-packages.yml
 #    - include: tasks/skype.yml
 #    - include: tasks/patch-xdg-autostart.yml
