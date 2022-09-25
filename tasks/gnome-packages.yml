@@ -50,6 +50,7 @@
     state: present
     name:
     - gnome-text-editor
+    - gnome-browser-connector # replaces chrome-gnome-shell
 
 - name: Ensure xdg mime default for text files application is set
   ansible.builtin.command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
