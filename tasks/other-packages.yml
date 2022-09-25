@@ -32,6 +32,7 @@
     - libappindicator-gtk3 # for Variety in Wayland
     - variety
     - powertop
+    - usbutils # for lsusb
 
 - name: Enable plocate-updatedb.timer
   become: yes
