@@ -1,0 +1,35 @@
+- name: Remove Java Package without version
+  become: yes
+  community.general.pacman:
+    state: absent
+    name:
+    - jdk-openjdk # This is now JDK 18
+    - openjdk-src
+    - openjdk-doc
+
+- name: Install Java Previous LTS
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - jdk11-openjdk
+    - openjdk11-src
+#    - openjdk11-doc # This is only on AUR on Arm
+
+- name: Create Java links directory
+  ansible.builtin.file:
+    path: '~/.jdk'
+    state: directory
+    mode: 0775
+
+- name: Create Java links
+  ansible.builtin.file:
+    src: '/usr/lib/jvm/java-{{ item }}-openjdk'
+    dest: '~/.jdk/jdk{{ item }}'
+    state: link
+  loop:
+    - 11
+
+- name: Install Maven
+  ansible.builtin.include_role:
+    name: gantsign.maven
