@@ -42,7 +42,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] yamllint ansible-lint
+        run: pip3 install ansible molecule[docker] docker yamllint ansible-lint
 
       - name: Show versions.
         run: molecule --version
