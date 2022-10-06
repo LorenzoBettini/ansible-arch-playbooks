@@ -27,7 +27,9 @@
     - include: tasks/kde-ssh.yml
     - include: tasks/flatpak.yml
     - include: tasks/zsh.yml
-    - include: tasks/zsh-antigen.yml
+    - block:
+      - include: tasks/zsh-antigen.yml
+      tags: zshantigen
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
     - include: tasks/dropbox.yml
