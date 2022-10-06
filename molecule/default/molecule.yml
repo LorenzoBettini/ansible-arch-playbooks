@@ -19,6 +19,7 @@ platforms:
     build_image: true
 provisioner:
   name: ansible
+  log: true
   playbooks:
     converge: ../${MOLECULE_DISTRO:-arch-gnome}/converge.yml
 verifier:
