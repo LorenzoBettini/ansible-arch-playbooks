@@ -41,6 +41,11 @@
     name: plocate-updatedb.timer
     enabled: yes
 
+# When using BTRFS remember to
+#    edit the file /etc/updatedb.conf
+#    replace PRUNE_BIND_MOUNTS = “yes” with PRUNE_BIND_MOUNTS = “no”
+#    save, exit and re-run updatedb
+
 - name: Install other AUR packages
   become: yes
   become_user: aur_builder
