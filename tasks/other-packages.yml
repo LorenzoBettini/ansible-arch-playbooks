@@ -33,6 +33,7 @@
     - variety
     - powertop
     - usbutils # for lsusb
+    - man-db # for man command
 
 - name: Enable plocate-updatedb.timer
   become: yes

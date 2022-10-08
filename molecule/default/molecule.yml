@@ -11,14 +11,15 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: ${MOLECULE_DISTRO:-arch-gnome}-instance
-    image: custom-${MOLECULE_DISTRO:-arch-gnome}-ansible
+  - name: instance
+    image: "lorebett/arch-for-molecule:latest"
     dockerfile: ../docker/Dockerfile
     command: ""
     privileged: true
     build_image: true
 provisioner:
   name: ansible
+  log: true
   playbooks:
     converge: ../${MOLECULE_DISTRO:-arch-gnome}/converge.yml
 verifier:
