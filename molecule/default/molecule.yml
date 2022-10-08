@@ -12,7 +12,7 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    image: "custom-arch-gnome-ansible"
+    image: "lorebett/${MOLECULE_DISTRO:-arch-gnome}-for-molecule:latest"
     dockerfile: ../docker/Dockerfile
     command: ""
     privileged: true
