@@ -11,7 +11,7 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: "${MOLECULE_DISTRO:-arch-gnome}-instance"
+  - name: instance
     image: "custom-${MOLECULE_DISTRO:-arch-gnome}-ansible"
     dockerfile: ../docker/Dockerfile
     command: ""
