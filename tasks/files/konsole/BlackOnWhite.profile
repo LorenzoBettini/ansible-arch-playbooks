@@ -6,4 +6,4 @@ Name=BlackOnWhite
 Parent=FALLBACK/
 
 [Scrolling]
-HistoryMode=0
+HistoryMode=2
