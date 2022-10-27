@@ -49,8 +49,8 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - gnome-text-editor
     - gnome-browser-connector # replaces chrome-gnome-shell
+#    - gnome-text-editor # in transition from aur to stable
 
 - name: Ensure xdg mime default for text files application is set
   ansible.builtin.command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
