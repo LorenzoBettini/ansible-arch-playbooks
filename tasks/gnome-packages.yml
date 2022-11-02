@@ -23,6 +23,7 @@
     - gnome-photos
     - gnome-remote-desktop
     - gnome-system-monitor
+    - gnome-text-editor
     - gnome-weather
     - simple-scan
     - gvfs
@@ -49,7 +50,6 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - gnome-text-editor
     - gnome-browser-connector # replaces chrome-gnome-shell
 
 - name: Ensure xdg mime default for text files application is set
@@ -64,18 +64,3 @@
       mime_types:
       - text/plain
       - text/xml
-
-- name: Uninstall Gnome terminal...
-  become: yes
-  community.general.pacman:
-    state: absent
-    name:
-    - gnome-terminal
-
-- name: .. and install Gnome terminal with transparency
-  become: yes
-  become_user: aur_builder
-  kewlfft.aur.aur:
-    state: present
-    name:
-    - gnome-terminal-transparency
