@@ -44,6 +44,7 @@ jobs:
           path: |
             ~/.ansible
             ~/.cache/molecule
+            ~/.cache/ansible-*
           key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
           # make sure that when an exact cache is not found we start with new
           # downloaded requirements
@@ -87,6 +88,7 @@ jobs:
           path: |
             ~/.ansible
             ~/.cache/molecule
+            ~/.cache/ansible-*
           key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
           # make sure that when an exact cache is not found we start with new
           # downloaded requirements
