@@ -65,6 +65,13 @@
       - text/plain
       - text/xml
 
+- name: Install libnautilus-extension
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - libnautilus-extension
+
 - name: Uninstall Gnome terminal...
   become: yes
   community.general.pacman:
