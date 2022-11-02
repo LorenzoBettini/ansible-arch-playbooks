@@ -69,16 +69,6 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
 
-      - name: Cache Ansible dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.ansible
-            ~/.cache/molecule
-          key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
-          # make sure that when an exact cache is not found we start with new
-          # downloaded requirements
-
       - name: Set up Python 3.
         uses: actions/setup-python@v4
         with:
@@ -90,6 +80,16 @@ jobs:
           path: /opt/hostedtoolcache/Python/*
           key: ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/requirements.txt') }}
           # perfect cache key match
+
+      - name: Cache Ansible dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.ansible
+            ~/.cache/molecule
+          key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
+          # make sure that when an exact cache is not found we start with new
+          # downloaded requirements
 
       - name: Show versions.
         run: molecule --version
