@@ -10,6 +10,9 @@ on:
   schedule:
     - cron: "0 7 * * 0"
 
+env:
+  PYTHON_VERSION: '3.11'
+
 jobs:
 
   cache-dependencies:
@@ -23,15 +26,14 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: $PYTHON_VERSION
           cache: 'pip'
 
       - name: Cache pip installed packages.
         uses: actions/cache@v3
         with:
           path: /opt/hostedtoolcache/Python/*
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: ${{ runner.os }}-pip-
+          key: ${{ runner.os }}-pip-$PYTHON_VERSION-${{ hashFiles('**/requirements.txt') }}
 
       - name: Install test dependencies.
         run: pip install -r pip/requirements.txt
@@ -80,13 +82,13 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: $PYTHON_VERSION
 
       - name: Restore pip installed packages.
         uses: actions/cache@v3
         with:
           path: /opt/hostedtoolcache/Python/*
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-$PYTHON_VERSION-${{ hashFiles('**/requirements.txt') }}
           # perfect cache key match
 
       - name: Show versions.
