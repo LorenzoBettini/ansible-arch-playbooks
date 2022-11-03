@@ -3,7 +3,6 @@
   community.general.pacman:
     state: present
     name:
-    - latte-dock
     - kate
     - spectacle
     - ark
@@ -21,3 +20,4 @@
     - kdeplasma-addons
     - kcalc
     - plasma-workspace-wallpapers
+#    - latte-dock # it's not maintained anymore
