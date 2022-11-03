@@ -31,8 +31,11 @@
 #    - include: tasks/flatpak.yml
 #    - include: tasks/gnome-extension-manager.yml
     - include: tasks/guake.yml
-    - include: tasks/zsh.yml
-    - include: tasks/zsh-antigen.yml
+    - name: Install Oh My Zsh
+      ansible.builtin.include_role:
+        name: lorenzobettini.oh_my_zsh
+    #- include: tasks/zsh.yml
+    #- include: tasks/zsh-antigen.yml
     - include: tasks/zsh-gnome.yml
     - include: tasks/java-latest-lts.yml
 #    - include: tasks/google-chrome.yml
