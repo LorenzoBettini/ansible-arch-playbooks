@@ -19,7 +19,9 @@
     state: present
     name:
     - dropbox-cli
-  ignore_errors: true
+  register: result
+  retries: 5
+  delay: 10
+  until: result is not failed
 # downloading of https://linux.dropbox.com/packages/dropbox.py
-# is extremely flaky, so we ignore a failure
-# in case we'll install it later manually
+# is extremely flaky, but ignoring errors might undermine idempotency
