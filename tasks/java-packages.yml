@@ -45,16 +45,11 @@
   loop:
     - 16
 
-# This should not be required
-# - name: Install libwebkit2gtk (for Eclipse SWT Browser)
-#   become: yes
-#   pacman:
-#     state: present
-#     name: libwebkit2gtk-4.0-37
-#   register: packageout
-
-# - debug: msg="{{ packageout.msg }}"
-#   when: packageout.msg is defined
+- name: Install webkit2gtk (for Eclipse SWT Browser)
+  become: yes
+  community.general.pacman:
+    state: present
+    name: webkit2gtk
 
 - name: Install Maven
   ansible.builtin.include_role:

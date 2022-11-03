@@ -57,7 +57,7 @@
     path: ~/.config/kglobalshortcutsrc
     section: kwin
     option: ExposeAll
-    value: Ctrl+F10\tLaunch (C)\tMeta+Z,Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
+    value: Meta+Z\tLaunch (C)\tCtrl+F10,Ctrl+F10\tLaunch (C),Toggle Present Windows (All desktops)
     no_extra_spaces: yes
 
 - name: Meta+Z for ExposeClass (Toggle Present Windows (Window class))
@@ -65,7 +65,7 @@
     path: ~/.config/kglobalshortcutsrc
     section: kwin
     option: ExposeClass
-    value: Meta+X\tCtrl+F7,Ctrl+F7,Toggle Present Windows (Window class)
+    value: Ctrl+F7\tMeta+X,Ctrl+F7,Toggle Present Windows (Window class)
     no_extra_spaces: yes
 
 - name: Alt+\ (Walk Through Windows of Current Application)

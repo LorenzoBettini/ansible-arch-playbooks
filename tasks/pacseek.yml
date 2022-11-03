@@ -4,4 +4,4 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - pacseek
+    - pacseek-bin

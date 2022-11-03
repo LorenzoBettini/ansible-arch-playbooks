@@ -8,4 +8,20 @@
     state: present
     name:
     - dropbox
+
+- name: Install Dropbox cli
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    skip_pgp_check: yes
+    # it fails with yay: "This option is only available with 'makepkg'."
+    use: makepkg
+    state: present
+    name:
     - dropbox-cli
+  register: result
+  retries: 5
+  delay: 10
+  until: result is not failed
+# downloading of https://linux.dropbox.com/packages/dropbox.py
+# is extremely flaky, but ignoring errors might undermine idempotency

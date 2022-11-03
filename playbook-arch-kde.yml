@@ -26,15 +26,18 @@
     - include: tasks/kde-configurations.yml
     - include: tasks/kde-ssh.yml
     - include: tasks/flatpak.yml
-    - include: tasks/zsh.yml
-    - include: tasks/zsh-antigen.yml
+    - name: Install Oh My Zsh
+      ansible.builtin.include_role:
+        name: lorenzobettini.oh_my_zsh
+    #- include: tasks/zsh.yml
+    #- include: tasks/zsh-antigen.yml
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
     - include: tasks/dropbox.yml
     - include: tasks/docker.yml
     - include: tasks/cronie.yml
     - include: tasks/recoll.yml
-    - include: tasks/vscode.yml
+    - include: tasks/visual-studio-code.yml
     - include: tasks/libreoffice.yml
     - include: tasks/other-packages.yml
     - include: tasks/skype.yml

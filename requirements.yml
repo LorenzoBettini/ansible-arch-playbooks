@@ -6,6 +6,9 @@ roles:
     version: 0.2.5
     # src: https://github.com/LorenzoBettini/ansible-role-customize-gnome
     # version: "issue-15"
+  # Install my own roles from GitHub
+  - name: lorenzobettini.oh_my_zsh
+    src: https://github.com/LorenzoBettini/ansible-molecule-oh-my-zsh-example/
 
 collections:
   # Install a collection from Ansible Galaxy.

@@ -7,10 +7,56 @@ on:
   pull_request:
     paths-ignore:
      - '**.md'
+  schedule:
+    - cron: "0 7 * * 0"
+
+env:
+  PYTHON_VERSION: '3.10.x'
 
 jobs:
 
+  cache-dependencies:
+    name: Cache dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Cache pip installed packages.
+        uses: actions/cache@v3
+        with:
+          path: /opt/hostedtoolcache/Python/*
+          key: ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Install test dependencies.
+        run: pip install -r pip/requirements.txt
+
+      - name: Cache Ansible dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.ansible
+            ~/.cache/molecule
+            ~/.cache/ansible-*
+          key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
+          # make sure that when an exact cache is not found we start with new
+          # downloaded requirements
+
+      - name: Run Molecule dependency.
+        run: molecule dependency
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+
   test:
+    needs: cache-dependencies
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
@@ -24,25 +70,28 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
 
+      - name: Set up Python 3.
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Restore pip installed packages.
+        uses: actions/cache@v3
+        with:
+          path: /opt/hostedtoolcache/Python/*
+          key: ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/requirements.txt') }}
+          # perfect cache key match
+
       - name: Cache Ansible dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: |
             ~/.ansible
+            ~/.cache/molecule
             ~/.cache/ansible-*
-            ~/.pip
-          key: ${{ runner.os }}-ansible-pip-molecule-${{ hashFiles('requirements.yml') }}
-          # restore-keys: ${{ runner.os }}-ansible-
+          key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
           # make sure that when an exact cache is not found we start with new
           # downloaded requirements
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] yamllint ansible-lint
 
       - name: Show versions.
         run: molecule --version
