@@ -64,3 +64,18 @@
       mime_types:
       - text/plain
       - text/xml
+
+- name: Uninstall Gnome terminal...
+  become: yes
+  community.general.pacman:
+    state: absent
+    name:
+    - gnome-terminal
+
+- name: .. and install Gnome terminal with transparency
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - gnome-terminal-transparency
