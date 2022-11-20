@@ -32,3 +32,4 @@
     name:
     - pacman-contrib
     - reflector
+    - rebuild-detector
