@@ -7,3 +7,5 @@
     - texlive-latexextra
     - texlive-bibtexextra
     - texlive-fontsextra
+    - texlive-science
+    - texlive-pictures
