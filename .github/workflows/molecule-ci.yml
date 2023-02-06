@@ -15,48 +15,7 @@ env:
 
 jobs:
 
-  cache-dependencies:
-    name: Cache dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: 'pip'
-
-      - name: Cache pip installed packages.
-        uses: actions/cache@v3
-        with:
-          path: /opt/hostedtoolcache/Python/*
-          key: ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/requirements.txt') }}
-
-      - name: Install test dependencies.
-        run: pip install -r pip/requirements.txt
-
-      - name: Cache Ansible dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.ansible
-            ~/.cache/molecule
-            ~/.cache/ansible-*
-          key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
-          # make sure that when an exact cache is not found we start with new
-          # downloaded requirements
-
-      - name: Run Molecule dependency.
-        run: molecule dependency
-        env:
-          PY_COLORS: '1'
-          ANSIBLE_FORCE_COLOR: '1'
-
   test:
-    needs: cache-dependencies
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
@@ -75,23 +34,8 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Restore pip installed packages.
-        uses: actions/cache@v3
-        with:
-          path: /opt/hostedtoolcache/Python/*
-          key: ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/requirements.txt') }}
-          # perfect cache key match
-
-      - name: Cache Ansible dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.ansible
-            ~/.cache/molecule
-            ~/.cache/ansible-*
-          key: ${{ runner.os }}-ansible-molecule-${{ hashFiles('requirements.yml') }}
-          # make sure that when an exact cache is not found we start with new
-          # downloaded requirements
+      - name: Install test dependencies.
+        run: pip install -r pip/requirements.txt
 
       - name: Show versions.
         run: molecule --version
