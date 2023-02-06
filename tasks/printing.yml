@@ -10,11 +10,19 @@
     - libcups
     - splix
     - system-config-printer
+    - avahi
 
 - name: Enable service CUPS
   become: yes
   ansible.builtin.systemd:
     name: cups
+    enabled: yes
+    state: started
+
+- name: Enable service Avahi
+  become: yes
+  ansible.builtin.systemd:
+    name: avahi-daemon
     enabled: yes
     state: started
 
@@ -31,3 +39,11 @@
     - foomatic-db-ppds
     - hplip
     - gutenprint
+
+- name: Enable network printer discovery
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^hosts: '
+    line: 'hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns'
+    mode: 0644
