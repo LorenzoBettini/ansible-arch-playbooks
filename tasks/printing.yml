@@ -11,6 +11,7 @@
     - splix
     - system-config-printer
     - avahi
+    - nss-mdns # host name resolution via mDNS
 
 - name: Enable service CUPS
   become: yes
