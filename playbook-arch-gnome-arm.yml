@@ -1,24 +1,27 @@
 ---
 - hosts: all
+  name: Arch ARM GNOME Playbook
   pre_tasks:
     - name: System details
-      ansible.builtin.debug: msg="{{ item }}"
+      ansible.builtin.debug:
+        msg: "{{ item }}"
       with_items: 
       - "{{ ansible_distribution }}"
       - "{{ ansible_distribution_release }}"
       - "{{ ansible_distribution_version }}"
       - "{{ ansible_distribution_major_version }}"
       - "{{ ansible_architecture }}"
-    - name: update repositories
-      become: yes
-      community.general.pacman: update_cache=yes
+    - name: Update repositories
+      become: True
+      community.general.pacman:
+        update_cache: True
       changed_when: False
   tasks:
     - include: tasks/aur-user.yml
     - include: tasks/pacman.yml
     - include: tasks/git.yml
     - include: tasks/yay.yml 
-    - include: tasks/pacseek.yml
+    - include: tasks/pacman-aur.yml
 #    - include: tasks/update-grub.yml
     - include: tasks/main-packages.yml
 #    - include: tasks/firewall.yml
