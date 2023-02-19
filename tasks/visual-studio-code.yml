@@ -1,3 +1,13 @@
+# Code - OSS — Official Arch Linux open-source release.
+# Ships a configuration enabling Open VSX.
+# https://github.com/microsoft/vscode
+- name: Remove VS Code (Code - OSS)
+  become: yes
+  community.general.pacman:
+    state: absent
+    name:
+    - code
+
 # Visual Studio Code — Proprietary Microsoft-branded release.
 # https://code.visualstudio.com/
 - name: Install VS Code (Visual Studio Code)

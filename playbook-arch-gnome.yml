@@ -17,7 +17,7 @@
     - include: tasks/pacman.yml
     - include: tasks/git.yml
     - include: tasks/yay.yml 
-    - include: tasks/pacseek.yml
+    - include: tasks/pacman-aur.yml
     - include: tasks/update-grub.yml
     - include: tasks/main-packages.yml
     - include: tasks/firewall.yml

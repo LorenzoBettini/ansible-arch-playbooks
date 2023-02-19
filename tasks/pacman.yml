@@ -25,12 +25,13 @@
   - option: ParallelDownloads
     value: 6
 
-- name: Install pacman-contrib
+- name: Install pacman programs
   become: yes
   community.general.pacman:
     state: present
     name:
     - pacman-contrib
+    - rebuild-detector
 
 # reflector is not available for arm
 - name: Install reflector
