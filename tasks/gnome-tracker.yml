@@ -1,11 +1,11 @@
 # the default was ['.trackerignore', '.git', '.hg', '.nomedia']
 # but that way the contents of a git working directory are not indexed
-- name: customize Tracker Ignored directories with content
+- name: Customize Tracker Ignored directories with content
   community.general.dconf:
     key: "/org/freedesktop/tracker/miner/files/ignored-directories-with-content"
     value: "['.trackerignore', '.hg', '.nomedia']"
 
-- name: customize Tracker Ignored directories
+- name: Customize Tracker Ignored directories
   community.general.dconf:
     key: "/org/freedesktop/tracker/miner/files/ignored-directories"
     value: "['po', 'CVS', 'core-dumps', 'lost+found', 'bin', 'test-bin', 'bin-test', 'target', 'xtend-gen', 'src-gen', 'cache', 'node_modules', 'node_packages', 'thunderbird']"
@@ -30,7 +30,7 @@
 # so that it can be run also in a chroot environment
 # otherwise we get "Failed to connect to bus: No such file or directory"
 - name: Disable Tracker Extract 3 at system level
-  become: yes
+  become: True
   ansible.builtin.systemd:
     name: tracker-extract-3
     scope: global

@@ -1,7 +1,7 @@
 # ONLY if you plan to use only GNOME with some KDE applications
 # NOT if you plan to use also the full KDE Plasma DE
-- name: customize /etc/environment
-  become: yes
+- name: Customize /etc/environment
+  become: True
   ansible.builtin.blockinfile:
     path: "/etc/environment"
     block: |
