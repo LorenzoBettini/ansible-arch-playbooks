@@ -1,16 +1,17 @@
 - name: Ensure fakeroot is installed
-  become: yes
+  become: True
   community.general.pacman:
     state: present
     name:
     - fakeroot
 
 - name: Ensure base-devel is installed
-  become: yes
+  become: True
   community.general.pacman:
     state: present
     name:
     - base-devel
+    - patch # needed for some AUR packages with patches to apply
 
 - name: Install yay
   become: true
