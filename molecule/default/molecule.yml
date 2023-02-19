@@ -13,7 +13,7 @@ platforms:
     platform: ${DOCKER_DEFAULT_PLATFORM:-linux/amd64}
     dockerfile: ../docker/Dockerfile
     build_image: true
-    command: ""
+    command: /usr/sbin/init
     tmpfs:
       - /run
       - /tmp
