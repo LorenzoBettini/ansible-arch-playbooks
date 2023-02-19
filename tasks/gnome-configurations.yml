@@ -1,14 +1,14 @@
-- name: enable minimize and maximize
+- name: Enable minimize and maximize
   community.general.dconf:
     key: "/org/gnome/desktop/wm/preferences/button-layout"
     value: "'appmenu:minimize,maximize,close'"
 
-- name: terminal transparency
+- name: Terminal transparency
   community.general.dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-transparent-background"
     value: "true"
 
-- name: terminal transparency percentage
+- name: Terminal transparency percentage
   community.general.dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-transparency-percent"
     value: "5"
@@ -35,11 +35,11 @@
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name"
     value: "'terminal'"
-- name: terminal shortcut command
+- name: Terminal shortcut command
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command"
     value: "'gnome-terminal --maximize'"
-- name: terminal shortcut binding
+- name: Terminal shortcut binding
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding"
     value: "'<Super>t'"
@@ -48,11 +48,11 @@
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name"
     value: "'terminal'"
-- name: terminal shortcut command
+- name: Terminal shortcut command
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command"
     value: "'gnome-terminal'"
-- name: terminal shortcut binding
+- name: Terminal shortcut binding
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding"
     value: "'<Primary><Alt>t'"
@@ -61,18 +61,18 @@
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/name"
     value: "'guake'"
-- name: guake shortcut command
+- name: Guake shortcut command
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/command"
     value: "'guake-toggle'"
-- name: guake shortcut binding
+- name: Guake shortcut binding
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/binding"
     value: "'F12'"
 
 # All custom shortcuts must also be added to an array.
 
-- name: enable custom keybindings
+- name: Enable custom keybindings
   community.general.dconf:
     key: "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
     value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/guake/']"
