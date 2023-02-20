@@ -1,4 +1,4 @@
-FROM archlinux:latest
+FROM archlinux:base-20230212.0.126025
 LABEL maintainer="Lorenzo Bettini"
 
 ENV container docker
