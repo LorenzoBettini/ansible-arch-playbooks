@@ -16,3 +16,4 @@
     - power-profiles-daemon
     - ntfs-3g
     - dnsutils
+    - rsync # required by Molecule when building a Docker image
