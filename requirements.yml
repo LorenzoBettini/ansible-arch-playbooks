@@ -7,6 +7,10 @@ roles:
     src: https://github.com/LorenzoBettini/ansible-molecule-oh-my-zsh-example/
   - name: lorenzobettini.my_gnome_role
     src: https://github.com/LorenzoBettini/my_gnome_role/
+  # transitive dependencies
+  # required by my_gnome_role
+  - name: petermosmans.customize-gnome
+    version: 0.2.11
 
 collections:
   # Install a collection from Ansible Galaxy.
