@@ -1,5 +1,5 @@
 - name: Install Dropbox nautilus
-  become: yes
+  become: True
   become_user: aur_builder
   kewlfft.aur.aur:
     skip_pgp_check: yes

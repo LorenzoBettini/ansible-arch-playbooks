@@ -42,9 +42,7 @@
     - include: tasks/java-packages.yml
     - include: tasks/google-chrome.yml
     - include: tasks/dropbox.yml
-    # Temporarily disabled
-    # see https://github.com/LorenzoBettini/ansible-arch-playbooks/issues/11
-    # - include: tasks/dropbox-nautilus.yml
+    - include: tasks/dropbox-nautilus.yml
     - include: tasks/docker.yml
     - include: tasks/cronie.yml
     - include: tasks/recoll.yml
