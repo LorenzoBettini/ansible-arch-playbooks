@@ -26,11 +26,9 @@
     - include: tasks/main-packages.yml
 #    - include: tasks/firewall.yml
 #    - include: tasks/printing.yml
-    - include: tasks/gnome-packages.yml
-    - include: tasks/gnome-tracker.yml
-    - include: tasks/gnome-arch-extensions.yml
-    - include: tasks/gnome-configurations.yml
-    - include: tasks/gnome-templates.yml
+    - name: Install GNOME
+      ansible.builtin.include_role:
+        name: lorenzobettini.my_gnome_role
 #    - include: tasks/flatpak.yml
 #    - include: tasks/gnome-extension-manager.yml
     - include: tasks/guake.yml
