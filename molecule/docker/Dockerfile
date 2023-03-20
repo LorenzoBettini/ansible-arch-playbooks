@@ -1,10 +1,14 @@
-FROM archlinux:base-20230212.0.126025
+FROM archlinux:latest
 LABEL maintainer="Lorenzo Bettini"
 
 ENV container docker
 ENV LC_ALL C
 ENV DEBIAN_FRONTEND noninteractive
 
+# Make sure we're up to date
+RUN pacman -Syu --noconfirm
+
+# Needed for the Ansible playbook
 RUN pacman -Sy --noconfirm --needed python sudo systemd
 
 # Remove several files from systemd directory, to avoid interference with
