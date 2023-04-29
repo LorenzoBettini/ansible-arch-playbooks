@@ -11,6 +11,7 @@
     state: present
     name:
     - base-devel
+    - make
     - patch # needed for some AUR packages with patches to apply
 
 - name: Install yay

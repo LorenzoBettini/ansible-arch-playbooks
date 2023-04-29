@@ -1,5 +1,5 @@
 - name: Install Dropbox
-  become: yes
+  become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     skip_pgp_check: yes
@@ -10,7 +10,7 @@
     - dropbox
 
 - name: Install Dropbox cli
-  become: yes
+  become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     skip_pgp_check: yes
