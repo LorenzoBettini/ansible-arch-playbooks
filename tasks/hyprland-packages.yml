@@ -1,0 +1,24 @@
+- name: Install Hyprland Packages
+  become: True
+  community.general.pacman:
+    state: present
+    name:
+    - hyprland
+    - polkit-kde-agent
+    - grim
+    - wl-clipboard
+    - slurp
+    - swaybg
+    - brightnessctl
+    - swayidle
+    - swaylock
+    - xdg-desktop-portal-hyprland
+    - otf-font-awesome
+
+- name: Install Waybar
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - waybar-hyprland-git
