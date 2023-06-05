@@ -1,0 +1,41 @@
+---
+- hosts: all
+  name: Arch Hyprland Playbook
+  pre_tasks:
+    - name: System details
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_items: 
+      - "{{ ansible_distribution }}"
+      - "{{ ansible_distribution_release }}"
+      - "{{ ansible_distribution_version }}"
+      - "{{ ansible_distribution_major_version }}"
+    - name: Update repositories
+      become: yes
+      community.general.pacman:
+        update_cache: True
+      changed_when: False
+  tasks:
+    - include: tasks/aur-user.yml
+    - include: tasks/pacman.yml
+    - include: tasks/git.yml
+    - include: tasks/yay.yml 
+    - include: tasks/pacman-aur.yml
+    - include: tasks/update-grub.yml
+    - include: tasks/main-packages.yml
+    - include: tasks/firewall.yml
+    - include: tasks/printing.yml
+    - include: tasks/flatpak.yml
+    - name: Install Oh My Zsh
+      ansible.builtin.include_role:
+        name: lorenzobettini.oh_my_zsh
+    - include: tasks/java-packages.yml
+    - include: tasks/google-chrome.yml
+    - include: tasks/dropbox.yml
+    #- include: tasks/docker.yml
+    - include: tasks/cronie.yml
+    - include: tasks/recoll.yml
+    - include: tasks/visual-studio-code.yml
+    - include: tasks/libreoffice.yml
+    - include: tasks/other-packages.yml
+    - include: tasks/skype.yml

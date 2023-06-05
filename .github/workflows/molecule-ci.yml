@@ -24,6 +24,7 @@ jobs:
         playbookdistro:
           - arch-gnome
           - arch-kde
+          - arch-hyprland
 
     steps:
       - name: Check out the codebase.
