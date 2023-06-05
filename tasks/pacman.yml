@@ -31,5 +31,13 @@
     state: present
     name:
     - pacman-contrib
-    - reflector
     - rebuild-detector
+
+# reflector is not available for arm
+- name: Install reflector
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+    - reflector
+  when: ansible_architecture != "aarch64"
