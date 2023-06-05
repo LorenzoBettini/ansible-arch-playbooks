@@ -23,6 +23,7 @@
     - include: tasks/yay.yml 
     - include: tasks/pacman-aur.yml
     - include: tasks/main-packages.yml
+    - include: tasks/power-profiles.yml
     - name: Install KDE
       ansible.builtin.include_role:
         name: lorenzobettini.my_kde_role

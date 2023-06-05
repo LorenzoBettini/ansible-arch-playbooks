@@ -23,6 +23,7 @@
     - include: tasks/pacman-aur.yml
     - include: tasks/update-grub.yml
     - include: tasks/main-packages.yml
+    - include: tasks/power-profiles.yml
     - include: tasks/firewall.yml
     - include: tasks/printing.yml
     - name: Install KDE
