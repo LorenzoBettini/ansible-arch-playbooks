@@ -23,9 +23,9 @@
     - include: tasks/yay.yml 
     - include: tasks/pacman-aur.yml
     - include: tasks/main-packages.yml
-    - include: tasks/kde-packages.yml
-    - include: tasks/kde-configurations.yml
-    - include: tasks/kde-ssh.yml
+    - name: Install KDE
+      ansible.builtin.include_role:
+        name: lorenzobettini.my_kde_role
     - name: Install Oh My Zsh
       ansible.builtin.include_role:
         name: lorenzobettini.oh_my_zsh
