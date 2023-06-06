@@ -1,3 +1,10 @@
+- name: Ensures power-profiles-deamon is not installed
+  become: True
+  community.general.pacman:
+    state: absent
+    name:
+    - power-profiles-daemon
+
 - name: Install TLP
   become: True
   community.general.pacman:
