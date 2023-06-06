@@ -24,6 +24,7 @@
     - include: tasks/update-grub.yml
     - include: tasks/main-packages.yml
     - include: tasks/hyprland-packages.yml
+    - include: tasks/kde-packages.yml
     - include: tasks/tlp.yml
     - include: tasks/firewall.yml
     - include: tasks/printing.yml
