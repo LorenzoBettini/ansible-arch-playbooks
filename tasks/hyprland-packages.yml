@@ -18,11 +18,18 @@
 
 - name: Install Waybar
   become: true
-  become_user: aur_builder
-  kewlfft.aur.aur:
+  community.general.pacman:
     state: present
     name:
-    - waybar-hyprland-git
+    - waybar
+
+#- name: Install Waybar
+#  become: true
+#  become_user: aur_builder
+#  kewlfft.aur.aur:
+#    state: present
+#    name:
+#    - waybar-hyprland-git
 
 - name: Install Rofi
   become: true
