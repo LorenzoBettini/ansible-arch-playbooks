@@ -16,6 +16,14 @@
     - otf-font-awesome
     - wmctrl
 
+- name: Install Terminals
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - kitty
+    - alacritty
+
 - name: Install Waybar
   become: true
   community.general.pacman:
