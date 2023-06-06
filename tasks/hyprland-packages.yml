@@ -24,6 +24,13 @@
     - kitty
     - alacritty
 
+- name: Install Nemo
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - nemo
+
 - name: Install Waybar
   become: true
   community.general.pacman:
