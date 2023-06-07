@@ -17,6 +17,14 @@
     - wmctrl
     - network-manager-applet
 
+- name: Install Additional AUR packages
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - wlogout
+
 - name: Install Terminals
   become: true
   community.general.pacman:
