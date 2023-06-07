@@ -1,0 +1,6 @@
+---
+- name: Converge
+  hosts: all
+
+- name: Import playbook
+  import_playbook: ../../playbook-arch-hyprland.yml

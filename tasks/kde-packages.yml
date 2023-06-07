@@ -1,0 +1,17 @@
+# KDE specific packages NOT be used in another WM
+- name: Install KDE Packages
+  become: True
+  community.general.pacman:
+    state: present
+    name:
+    - kate
+    - gwenview
+    - konsole
+    - breeze-icons
+    - kvantum
+
+# We don't want baloo outside KDE, but gwenview installs it
+- name: Disable baloo
+  ansible.builtin.shell: balooctl disable
+  changed_when: false
+  failed_when: false

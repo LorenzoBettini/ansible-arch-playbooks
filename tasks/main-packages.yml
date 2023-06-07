@@ -1,5 +1,5 @@
 - name: Install Main Packages
-  become: yes
+  become: True
   community.general.pacman:
     state: present
     name:
@@ -13,7 +13,6 @@
     - unison
     - firefox
     - thunderbird
-    - power-profiles-daemon
     - ntfs-3g
     - dnsutils
     - rsync # required by Molecule when building a Docker image

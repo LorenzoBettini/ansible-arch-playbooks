@@ -1,0 +1,6 @@
+- name: Install Power Profiles
+  become: True
+  community.general.pacman:
+    state: present
+    name:
+    - power-profiles-daemon
