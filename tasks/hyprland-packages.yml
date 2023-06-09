@@ -40,6 +40,11 @@
     name:
     - nemo
 
+- name: Set kitty as Nemo terminal
+  community.general.dconf:
+    key: "/org/cinnamon/desktop/applications/terminal/exec"
+    value: "'kitty'"
+
 - name: Install Waybar
   become: true
   community.general.pacman:
