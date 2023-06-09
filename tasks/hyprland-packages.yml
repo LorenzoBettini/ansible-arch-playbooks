@@ -39,6 +39,7 @@
     state: present
     name:
     - nemo
+    - python-psutil # Actually required by the following dconf task
 
 - name: Set kitty as Nemo terminal
   community.general.dconf:
