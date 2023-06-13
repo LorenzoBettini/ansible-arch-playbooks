@@ -32,6 +32,8 @@
     - name: Install Oh My Zsh
       ansible.builtin.include_role:
         name: lorenzobettini.oh_my_zsh
+      vars:
+        with_starship: false
     - include: tasks/zsh-gnome.yml
     - include: tasks/java-latest-lts.yml
     - include: tasks/visual-studio-code.yml
