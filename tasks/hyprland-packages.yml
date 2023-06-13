@@ -16,6 +16,7 @@
     - otf-font-awesome
     - wmctrl
     - network-manager-applet
+    - mako
 
 - name: Install Additional AUR packages
   become: true
