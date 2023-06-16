@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  name: Arch ARM KDE Playbook
+  name: Arch ARM Hyprland Playbook
   pre_tasks:
     - name: System details
       ansible.builtin.debug:
