@@ -9,6 +9,7 @@
     - konsole
     - breeze-icons
     - kvantum
+    - okular
 
 # We don't want baloo outside KDE, but gwenview installs it
 - name: Disable baloo
