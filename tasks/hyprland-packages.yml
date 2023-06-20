@@ -42,6 +42,7 @@
     state: present
     name:
     - nemo
+    - nemo-fileroller
     - python-psutil # Actually required by the following dconf task
 
 - name: Set kitty as Nemo terminal
