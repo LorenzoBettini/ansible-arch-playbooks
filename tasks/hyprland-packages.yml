@@ -36,6 +36,14 @@
     - kitty
     - alacritty
 
+- name: Install Additional Fonts
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - ttf-fira-mono
+    - ttf-jetbrains-mono
+
 - name: Install Nemo
   become: true
   community.general.pacman:
