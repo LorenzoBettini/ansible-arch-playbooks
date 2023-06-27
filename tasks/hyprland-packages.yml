@@ -19,6 +19,14 @@
     - mako
     - gnome-themes-extra
 
+# required by the waybar keyboard-state module
+- name: Add user to group input
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: input
+    append: yes
+
 - name: Install Additional AUR packages
   become: true
   become_user: aur_builder
