@@ -5,6 +5,7 @@
     name:
     - texlive-core
     - texlive-latexextra
+    - texlive-plaingeneric
     - texlive-bibtexextra
     - texlive-fontsextra
     - texlive-science
