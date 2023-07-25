@@ -16,3 +16,11 @@
     - ntfs-3g
     - dnsutils
     - rsync # required by Molecule when building a Docker image
+
+- name: Install Additional Fonts
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - ttf-fira-mono
+    - ttf-jetbrains-mono
