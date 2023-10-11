@@ -1,3 +1,4 @@
+# Enable it when 22 (non LTS) is released
 - name: Remove Java Package without version
   become: yes
   community.general.pacman:
@@ -6,12 +7,16 @@
     - jdk-openjdk # This is now JDK 18
     - openjdk-src
     - openjdk-doc
+  when: false
 
 - name: Install Java Packages
   become: yes
   community.general.pacman:
     state: present
     name:
+    - jdk-openjdk # current version is Java 21 (LTS). Change it when 22 is released
+    - openjdk-src
+    - openjdk-doc
     - jdk17-openjdk # the first one will be the default
     - openjdk17-src
     - openjdk17-doc
@@ -37,6 +42,7 @@
     - 8
     - 11
     - 17
+    - 21
 
 - name: Remove old Java links
   ansible.builtin.file:
