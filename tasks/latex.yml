@@ -11,3 +11,4 @@
     - texlive-science
     - texlive-pictures
     - texlive-langitalian # for curriculum
+    - texlive-fontutils # for repstopdf (convert eps to pdf)
