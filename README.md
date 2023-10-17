@@ -43,3 +43,9 @@ After running the main playbook (either for GNOME or KDE), possibly run addition
 ```
 ansible-playbook -i local -v playbook-arch-kde-xorg.yml -K
 ```
+
+After running the main playbook (e.g., for Hyprland), possibly run additional playbooks for specific installations/configurations, e.g.:
+
+```
+ansible-playbook -i local -v playbook-arch-latex.yml -K
+```
