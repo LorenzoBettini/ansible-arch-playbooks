@@ -17,21 +17,21 @@
         update_cache: True
       changed_when: False
   tasks:
-    - include: tasks/aur-user.yml
-    - include: tasks/pacman.yml
-    - include: tasks/git.yml
-    - include: tasks/yay.yml 
-    - include: tasks/pacman-aur.yml
-    - include: tasks/main-packages.yml
-    - include: tasks/hyprland-packages.yml
-    - include: tasks/kde-packages.yml
-    - include: tasks/tlp.yml
+    - include_tasks: tasks/aur-user.yml
+    - include_tasks: tasks/pacman.yml
+    - include_tasks: tasks/git.yml
+    - include_tasks: tasks/yay.yml 
+    - include_tasks: tasks/pacman-aur.yml
+    - include_tasks: tasks/main-packages.yml
+    - include_tasks: tasks/hyprland-packages.yml
+    - include_tasks: tasks/kde-packages.yml
+    - include_tasks: tasks/tlp.yml
     - name: Install Oh My Zsh
       ansible.builtin.include_role:
         name: lorenzobettini.oh_my_zsh
       vars:
         with_starship: false
-    - include: tasks/java-latest-lts.yml
-    - include: tasks/visual-studio-code.yml
-    - include: tasks/libreoffice.yml
-    - include: tasks/other-packages.yml
+    - include_tasks: tasks/java-latest-lts.yml
+    - include_tasks: tasks/visual-studio-code.yml
+    - include_tasks: tasks/libreoffice.yml
+    - include_tasks: tasks/other-packages.yml
