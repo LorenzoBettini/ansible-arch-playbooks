@@ -1,4 +1,8 @@
-FROM gitpod/workspace-python-3.9:2023-01-16-03-31-28
+FROM gitpod/workspace-python-3.11:latest
+
+# To try this before committing:
+# docker build -f .gitpod.Dockerfile -t gitpod-dockerfile-test .
+# docker run -it gitpod-dockerfile-test bash
 
 RUN pip install --upgrade pip
 
