@@ -16,4 +16,4 @@
         update_cache: True
       changed_when: False
   tasks:
-    - include: tasks/latex.yml
+    - include_tasks: tasks/latex.yml

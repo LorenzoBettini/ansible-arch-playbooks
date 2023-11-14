@@ -16,5 +16,5 @@
         update_cache: True
       changed_when: False
   tasks:
-    - include: tasks/touchegg.yml
-    - include: tasks/touchegg-kde-conf.yml
+    - include_tasks: tasks/touchegg.yml
+    - include_tasks: tasks/touchegg-kde-conf.yml
