@@ -1,3 +1,13 @@
+# Visual Studio Code — Proprietary Microsoft-branded release.
+# https://code.visualstudio.com/
+- name: Remove VS Code (Visual Studio Code)
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: absent
+    name:
+    - visual-studio-code-bin
+
 # Code - OSS — Official Arch Linux open-source release.
 # Ships a configuration enabling Open VSX.
 # https://github.com/microsoft/vscode
