@@ -1,9 +1,10 @@
 # Visual Studio Code — Proprietary Microsoft-branded release.
 # https://code.visualstudio.com/
+# Even though it's an AUR package, we must use pacman to remove it (in case)
+# because kewlfft.aur.aur does not support "absent"
 - name: Remove VS Code (Visual Studio Code)
   become: yes
-  become_user: aur_builder
-  kewlfft.aur.aur:
+  community.general.pacman:
     state: absent
     name:
     - visual-studio-code-bin
