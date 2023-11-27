@@ -43,7 +43,9 @@
     - include_tasks: tasks/java-packages.yml
     - include_tasks: tasks/google-chrome.yml
     - include_tasks: tasks/dropbox.yml
-    - include_tasks: tasks/docker.yml
+    - tags: docker
+      block:
+      - include_tasks: tasks/docker.yml
     - include_tasks: tasks/cronie.yml
     - include_tasks: tasks/recoll.yml
     - include_tasks: tasks/visual-studio-code.yml
