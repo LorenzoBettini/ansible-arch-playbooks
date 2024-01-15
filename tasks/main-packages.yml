@@ -4,7 +4,6 @@
     state: present
     name:
     - base-devel
-    - vim
     - curl
     - wget
     - curl
