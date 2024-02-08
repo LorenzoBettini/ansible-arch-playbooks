@@ -11,6 +11,9 @@
     - kvantum
     - okular
     - kcalc
+    - dolphin
+    - dolphin-plugins
+    - ark
 
 # We don't want baloo outside KDE, but gwenview installs it
 - name: Disable baloo
