@@ -20,3 +20,9 @@
   ansible.builtin.shell: balooctl disable
   changed_when: false
   failed_when: false
+
+# When switching to KDE Plasma 6, the balooctl package has changed the name
+- name: Disable baloo 6
+  ansible.builtin.shell: balooctl6 disable
+  changed_when: false
+  failed_when: false
