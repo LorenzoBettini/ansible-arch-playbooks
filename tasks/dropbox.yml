@@ -11,17 +11,25 @@
 
 - name: Install Dropbox cli
   become: true
-  become_user: aur_builder
-  kewlfft.aur.aur:
-    skip_pgp_check: yes
-    # it fails with yay: "This option is only available with 'makepkg'."
-    use: makepkg
-    state: present
-    name:
-    - dropbox-cli
-  register: result
-  retries: 5
-  delay: 10
-  until: result is not failed
-# downloading of https://linux.dropbox.com/packages/dropbox.py
-# is extremely flaky, but ignoring errors might undermine idempotency
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/tasks/files/dropbox/dropbox-cli.py"
+    dest: "/usr/bin/dropbox-cli"
+    mode: 0755
+
+# The AUR package becomes obsolete too often
+# - name: Install Dropbox cli
+#   become: true
+#   become_user: aur_builder
+#   kewlfft.aur.aur:
+#     skip_pgp_check: yes
+#     # it fails with yay: "This option is only available with 'makepkg'."
+#     use: makepkg
+#     state: present
+#     name:
+#     - dropbox-cli
+#   register: result
+#   retries: 5
+#   delay: 10
+#   until: result is not failed
+# # downloading of https://linux.dropbox.com/packages/dropbox.py
+# # is extremely flaky, but ignoring errors might undermine idempotency
