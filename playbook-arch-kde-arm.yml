@@ -27,6 +27,8 @@
     - name: Install KDE
       ansible.builtin.include_role:
         name: lorenzobettini.my_kde_role
+      vars:
+        with_konsole_profiles: false
     - name: Install Oh My Zsh
       ansible.builtin.include_role:
         name: lorenzobettini.oh_my_zsh
