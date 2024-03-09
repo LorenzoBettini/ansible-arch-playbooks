@@ -3,7 +3,7 @@
 # Even though it's an AUR package, we must use pacman to remove it (in case)
 # because kewlfft.aur.aur does not support "absent"
 - name: Remove VS Code (Visual Studio Code)
-  become: yes
+  become: true
   community.general.pacman:
     state: absent
     name:
@@ -14,7 +14,7 @@
 # https://github.com/microsoft/vscode
 # NOT AVAILABLE FOR ARM
 - name: Install VS Code (Code - OSS)
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:

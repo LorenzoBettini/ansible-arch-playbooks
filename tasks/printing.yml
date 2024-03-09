@@ -1,5 +1,5 @@
 - name: Install Printing packages
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:
@@ -14,21 +14,21 @@
     - nss-mdns # host name resolution via mDNS
 
 - name: Enable service CUPS
-  become: yes
+  become: true
   ansible.builtin.systemd:
     name: cups
     enabled: yes
     state: started
 
 - name: Enable service Avahi
-  become: yes
+  become: true
   ansible.builtin.systemd:
     name: avahi-daemon
     enabled: yes
     state: started
 
 - name: Install Printing drivers
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:

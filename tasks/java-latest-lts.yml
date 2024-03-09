@@ -1,5 +1,5 @@
 - name: Remove Java Package without version
-  become: yes
+  become: true
   community.general.pacman:
     state: absent
     name:
@@ -8,7 +8,7 @@
     - openjdk-doc
 
 - name: Install Java Latest LTS
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:

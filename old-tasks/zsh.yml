@@ -1,10 +1,10 @@
 - name: Install ZSH
-  become: yes
+  become: true
   community.general.pacman:
     name: zsh
     state: present
 
 # Better to do that manually, when needed and wanted
 #- name: Change shell to zsh
-#  become: yes
+#  become: true
 #  shell: "chsh -s $(which zsh) {{ lookup('env', 'USER') }}"

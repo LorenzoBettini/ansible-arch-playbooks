@@ -21,7 +21,7 @@
 
 # required by the waybar keyboard-state module
 - name: Add user to group input
-  become: yes
+  become: true
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
     groups: input

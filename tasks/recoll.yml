@@ -1,5 +1,5 @@
 - name: Install Recoll
-  become: yes
+  become: true
   ansible.builtin.package:
     state: present
     name:

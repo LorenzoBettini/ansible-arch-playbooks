@@ -1,5 +1,5 @@
 - name: Install Antigen requirements
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     pkg:

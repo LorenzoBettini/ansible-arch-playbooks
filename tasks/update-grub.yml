@@ -1,5 +1,5 @@
 - name: Install update-grub
-  become: yes
+  become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     state: present

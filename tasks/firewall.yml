@@ -1,5 +1,5 @@
 - name: Install Firewall
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:
@@ -7,13 +7,13 @@
     - python-pyqt5 # for firewall-applet
 
 - name: Enable firewalld
-  become: yes
+  become: true
   ansible.builtin.systemd:
     name: firewalld.service
     enabled: yes
 
 - name: Copy Fedora Workstation zone configuration
-  become: yes
+  become: true
   ansible.builtin.copy:
     src: "{{ playbook_dir }}/tasks/files/firewall/"
     dest: "/usr/lib/firewalld/zones/"

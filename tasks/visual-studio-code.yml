@@ -2,7 +2,7 @@
 # Ships a configuration enabling Open VSX.
 # https://github.com/microsoft/vscode
 - name: Remove VS Code (Code - OSS)
-  become: yes
+  become: true
   community.general.pacman:
     state: absent
     name:
@@ -11,7 +11,7 @@
 # Visual Studio Code — Proprietary Microsoft-branded release.
 # https://code.visualstudio.com/
 - name: Install VS Code (Visual Studio Code)
-  become: yes
+  become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     state: present

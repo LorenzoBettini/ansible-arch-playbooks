@@ -1,5 +1,5 @@
 - name: Install Gnome Packages
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:
@@ -45,7 +45,7 @@
     var: command_output.stdout
 
 - name: Install Gnome Packages from AUR
-  become: yes
+  become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     state: present
@@ -66,14 +66,14 @@
       - text/xml
 
 - name: Uninstall Gnome terminal...
-  become: yes
+  become: true
   community.general.pacman:
     state: absent
     name:
     - gnome-terminal
 
 - name: .. and install Gnome terminal with transparency
-  become: yes
+  become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     state: present

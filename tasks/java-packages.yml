@@ -1,6 +1,6 @@
 # Enable it when 22 (non LTS) is released
 - name: Remove Java Package without version
-  become: yes
+  become: true
   community.general.pacman:
     state: absent
     name:
@@ -10,7 +10,7 @@
   when: false
 
 - name: Install Java Packages
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:
@@ -52,7 +52,7 @@
     - 16
 
 - name: Install webkit2gtk (for Eclipse SWT Browser)
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name: webkit2gtk

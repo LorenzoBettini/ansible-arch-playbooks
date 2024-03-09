@@ -1,5 +1,5 @@
 - name: Install Kde Packages
-  become: yes
+  become: true
   community.general.pacman:
     state: present
     name:
