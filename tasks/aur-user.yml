@@ -13,3 +13,11 @@
     create: yes
     mode: 0644
     validate: 'visudo -cf %s'
+
+- name: Disable debug in /etc/makepkg.conf
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/makepkg.conf
+    regexp: '^OPTIONS=(.*) debug(.*)$'
+    line: 'OPTIONS=\1 !debug\2'
+    backrefs: yes
