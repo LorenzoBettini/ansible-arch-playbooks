@@ -82,6 +82,13 @@
     name:
     - inxi
 
+- name: Install Chezmoi
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - chezmoi
+
 - name: Install chezmoi_modify_manager aarch64
   become: true
   ansible.builtin.unarchive:
