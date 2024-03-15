@@ -1,0 +1,36 @@
+---
+- name: Install Gnome Packages from AUR
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - gnome-browser-connector # replaces chrome-gnome-shell
+
+- name: Ensure xdg mime default for text files application is set
+  ansible.builtin.command: "xdg-mime default {{ item[0].desktop_file }} {{ item[1] }}"
+  changed_when: False
+  with_subelements:
+    - "{{ xdg_mime_defaults }}"
+    - mime_types
+  vars:
+    xdg_mime_defaults:
+    - desktop_file: org.gnome.TextEditor.desktop
+      mime_types:
+      - text/plain
+      - text/xml
+
+- name: Uninstall Gnome terminal...
+  become: true
+  community.general.pacman:
+    state: absent
+    name:
+    - gnome-terminal
+
+- name: .. and install Gnome terminal with transparency
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - gnome-terminal-transparency

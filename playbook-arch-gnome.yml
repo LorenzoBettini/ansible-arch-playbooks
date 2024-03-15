@@ -29,7 +29,7 @@
     - name: Install GNOME
       ansible.builtin.include_role:
         name: lorenzobettini.my_gnome_role
-    #- include_tasks: tasks/gnome-packages.yml
+    - include_tasks: tasks/gnome-additional-packages.yml
     #- include_tasks: tasks/gnome-tracker.yml
     #- include_tasks: tasks/gnome-arch-extensions.yml
     #- include_tasks: tasks/gnome-configurations.yml
