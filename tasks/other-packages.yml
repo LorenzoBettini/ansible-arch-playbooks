@@ -34,6 +34,12 @@
     - powertop
     - usbutils # for lsusb
     - man-db # for man command
+
+- name: Install Neovim and requirements
+  become: true
+  community.general.pacman:
+    state: present
+    name:
     - neovim
     - npm # required for some neovim LSPs, e.g., bashls
     - wl-clipboard # for neovim clipboard sharing
