@@ -4,19 +4,18 @@
   community.general.pacman:
     state: absent
     name:
-    - jdk-openjdk # This is now JDK 18
+    - jdk-openjdk # This is now JDK 22
     - openjdk-src
     - openjdk-doc
-  when: false
 
 - name: Install Java Packages
   become: true
   community.general.pacman:
     state: present
     name:
-    - jdk-openjdk # current version is Java 21 (LTS). Change it when 22 is released
-    - openjdk-src
-    - openjdk-doc
+    - jdk21-openjdk
+    - openjdk21-src
+    - openjdk21-doc
     - jdk17-openjdk # the first one will be the default
     - openjdk17-src
     - openjdk17-doc
