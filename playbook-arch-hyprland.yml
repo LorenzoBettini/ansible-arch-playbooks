@@ -34,7 +34,9 @@
         name: lorenzobettini.oh_my_zsh
       vars:
         with_starship: false
-    - include_tasks: tasks/java-packages.yml
+    - block:
+      - include_tasks: tasks/java-packages.yml
+      tags: java
     - include_tasks: tasks/google-chrome.yml
     - include_tasks: tasks/dropbox.yml
     - include_tasks: tasks/docker.yml

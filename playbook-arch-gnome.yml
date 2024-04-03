@@ -47,7 +47,9 @@
     #- include_tasks: tasks/zsh.yml
     #- include_tasks: tasks/zsh-antigen.yml
     - include_tasks: tasks/zsh-gnome.yml
-    - include_tasks: tasks/java-packages.yml
+    - block:
+      - include_tasks: tasks/java-packages.yml
+      tags: java
     - include_tasks: tasks/google-chrome.yml
     - include_tasks: tasks/dropbox.yml
     #- include_tasks: tasks/dropbox-nautilus.yml
