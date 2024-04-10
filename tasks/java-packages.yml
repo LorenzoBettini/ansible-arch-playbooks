@@ -8,6 +8,14 @@
     - openjdk-src
     - openjdk-doc
 
+- name: Remove Old Java Packages
+  become: true
+  community.general.pacman:
+    state: absent
+    name:
+    - jre17-openjdk-headless
+    - jre11-openjdk-headless
+
 - name: Install Java Packages
   become: true
   community.general.pacman:
