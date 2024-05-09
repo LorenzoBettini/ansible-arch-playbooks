@@ -44,6 +44,7 @@
         name: lorenzobettini.oh_my_zsh
       vars:
         with_starship: false
+        copy_dot_files: false
     #- include_tasks: tasks/zsh.yml
     #- include_tasks: tasks/zsh-antigen.yml
     - include_tasks: tasks/zsh-gnome.yml

@@ -36,6 +36,7 @@
         name: lorenzobettini.oh_my_zsh
       vars:
         with_starship: false
+        copy_dot_files: false
     - include_tasks: tasks/zsh-gnome.yml
     - include_tasks: tasks/java-latest-lts.yml
     - include_tasks: tasks/visual-studio-code.yml
