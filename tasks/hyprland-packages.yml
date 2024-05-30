@@ -18,6 +18,7 @@
     - network-manager-applet
     - mako
     - gnome-themes-extra
+    - archlinux-xdg-menu
 
 # required by the waybar keyboard-state module
 - name: Add user to group input
