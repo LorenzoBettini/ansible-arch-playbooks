@@ -76,8 +76,7 @@
 
 - name: Uninstall Rofi Wayland from AUR
   become: true
-  become_user: aur_builder
-  kewlfft.aur.aur:
+  community.general.pacman:
     state: absent
     name:
     - rofi-lbonn-wayland-git
