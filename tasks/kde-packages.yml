@@ -1,4 +1,4 @@
-# KDE specific packages NOT be used in another WM
+# KDE specific packages to be used in another WM
 - name: Install KDE Packages
   become: True
   community.general.pacman:
