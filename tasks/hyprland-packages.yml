@@ -87,3 +87,19 @@
     state: present
     name:
     - rofi-wayland
+
+- name: Install Additional packages for KDE
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - ttf-hack
+    - qt5ct
+
+- name: Install patched qt6ct for KDE
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name:
+    - qt6ct-kde
