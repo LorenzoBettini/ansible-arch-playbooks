@@ -20,6 +20,13 @@
       - text/plain
       - text/xml
 
+- name: Install Gnome terminal with transparency build deps
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - glib2-devel
+
 - name: Uninstall Gnome terminal...
   become: true
   community.general.pacman:
