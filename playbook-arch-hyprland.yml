@@ -23,6 +23,7 @@
     - include_tasks: tasks/pacman-aur.yml
     - include_tasks: tasks/update-grub.yml
     - include_tasks: tasks/main-packages.yml
+    - include_tasks: tasks/wayland-packages.yml
     - include_tasks: tasks/hyprland-packages.yml
     - include_tasks: tasks/kde-packages.yml
     - include_tasks: tasks/tlp.yml
