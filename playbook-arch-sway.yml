@@ -39,7 +39,9 @@
     - tags: java
       block:
       - include_tasks: tasks/java-packages.yml
-    - include_tasks: tasks/google-chrome.yml
+    - tags: chrome
+      block:
+      - include_tasks: tasks/google-chrome.yml
     - tags: dropbox
       block:
       - include_tasks: tasks/dropbox.yml
