@@ -25,6 +25,7 @@ jobs:
           - arch-gnome
           - arch-kde
           - arch-hyprland
+          - arch-sway
 
     steps:
       - name: Check out the codebase.

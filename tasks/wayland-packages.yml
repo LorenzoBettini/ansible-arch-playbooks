@@ -15,6 +15,7 @@
     - otf-font-awesome
     - wmctrl
     - network-manager-applet
+    - libnotify
     - mako
     - gnome-themes-extra
     - archlinux-xdg-menu
