@@ -1,0 +1,6 @@
+- name: Install Sway Packages
+  become: True
+  community.general.pacman:
+    state: present
+    name:
+    - sway
