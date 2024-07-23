@@ -43,6 +43,7 @@
     - neovim
     - npm # required for some neovim LSPs, e.g., bashls
     - wl-clipboard # for neovim clipboard sharing
+    - lazygit
 
 # shellcheck is NOT available as standard package for arm
 - name: Install shellcheck
