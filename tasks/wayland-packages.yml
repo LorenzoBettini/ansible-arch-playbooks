@@ -75,12 +75,14 @@
 #    name:
 #    - waybar-hyprland-git
 
-- name: Uninstall Rofi Wayland from AUR
+- name: Install Rofi Wayland from AUR
   become: true
-  community.general.pacman:
-    state: absent
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
     name:
     - rofi-lbonn-wayland-git
+  when: ansible_architecture == "aarch64"
 
 - name: Install Rofi Wayland
   become: true
@@ -88,6 +90,7 @@
     state: present
     name:
     - rofi-wayland
+  when: ansible_architecture != "aarch64"
 
 - name: Install Additional packages for KDE
   become: true
