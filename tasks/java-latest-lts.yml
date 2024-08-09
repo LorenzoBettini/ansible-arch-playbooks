@@ -12,8 +12,8 @@
   community.general.pacman:
     state: present
     name:
-    - jdk17-openjdk # the first one will be the default
-    - openjdk17-src
+    - jdk21-openjdk # the first one will be the default
+    - openjdk21-src
 #    - openjdk17-doc # This is only on AUR on Arm
 
 - name: Create Java links directory
@@ -28,7 +28,7 @@
     dest: '~/.jdk/jdk{{ item }}'
     state: link
   loop:
-    - 17
+    - 21
 
 - name: Install Maven
   ansible.builtin.include_role:
