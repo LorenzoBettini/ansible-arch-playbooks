@@ -1,9 +1,8 @@
-- name: Uninstall mlocate and exfat-utils
+- name: Uninstall exfat-utils
   become: true
   community.general.pacman:
     state: absent
     name:
-    - mlocate
     - exfat-utils
 
 - name: Install Other Packages
