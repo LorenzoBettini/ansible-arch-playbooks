@@ -16,7 +16,9 @@
         update_cache: True
       changed_when: False
   tasks:
-    - include_tasks: tasks/aur-user.yml
+    - tags: aur
+      block:
+      - include_tasks: tasks/aur-user.yml
     - include_tasks: tasks/pacman.yml
     - include_tasks: tasks/git.yml
     - include_tasks: tasks/yay.yml 

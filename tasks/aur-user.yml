@@ -21,3 +21,10 @@
     regexp: '^OPTIONS=(.*) debug(.*)$'
     line: 'OPTIONS=\1 !debug\2'
     backrefs: yes
+
+- name: Disable compression in /etc/makepkg.conf
+  become: true
+  ansible.builtin.lineinfile:
+    path: /etc/makepkg.conf
+    regexp: '^PKGEXT='
+    line: "PKGEXT='.pkg.tar'"
