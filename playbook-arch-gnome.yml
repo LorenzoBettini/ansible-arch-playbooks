@@ -56,13 +56,17 @@
     - include_tasks: tasks/google-chrome.yml
     - include_tasks: tasks/dropbox.yml
     #- include_tasks: tasks/dropbox-nautilus.yml
-    - include_tasks: tasks/docker.yml
+    - tags: docker
+      block:
+      - include_tasks: tasks/docker.yml
     - include_tasks: tasks/cronie.yml
     - include_tasks: tasks/recoll.yml
     - include_tasks: tasks/visual-studio-code.yml
     - include_tasks: tasks/libreoffice.yml
     - include_tasks: tasks/other-packages.yml
-    - include_tasks: tasks/skype.yml
+    - tags: skype
+      block:
+      - include_tasks: tasks/skype.yml
     - include_tasks: tasks/patch-xdg-autostart.yml
     - tags: latex
       block:
