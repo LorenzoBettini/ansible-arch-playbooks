@@ -20,6 +20,13 @@
       - text/plain
       - text/xml
 
+- name: Install icons 
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - tela-circle-icon-theme-green 
+
 - name: Install Gnome terminal with transparency build deps
   become: true
   community.general.pacman:
