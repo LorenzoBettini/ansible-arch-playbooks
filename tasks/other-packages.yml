@@ -41,7 +41,8 @@
     name:
     - neovim
     - npm # required for some neovim LSPs, e.g., bashls
-    - wl-clipboard # for neovim clipboard sharing
+    - wl-clipboard # for neovim clipboard sharing in Wayland
+    - xclip # for neovim clipboard sharing in X11
     - lazygit
 
 # shellcheck is NOT available as standard package for arm
