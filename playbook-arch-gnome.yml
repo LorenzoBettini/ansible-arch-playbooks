@@ -49,7 +49,7 @@
         copy_dot_files: false
     #- include_tasks: tasks/zsh.yml
     #- include_tasks: tasks/zsh-antigen.yml
-    - include_tasks: tasks/zsh-gnome.yml
+    # - include_tasks: tasks/zsh-gnome.yml
     - block:
       - include_tasks: tasks/java-packages.yml
       tags: java
