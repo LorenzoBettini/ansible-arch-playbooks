@@ -3,6 +3,6 @@
   community.general.pacman:
     state: present
     name:
-    - libreoffice-fresh
+    - libreoffice-still
     - hunspell-en_US
     - hunspell-it
