@@ -5,12 +5,12 @@
     mode: 0644
     allow_no_value: yes
     section: options
-    option: '{{ item.option }}'
+    option: "{{ item.option }}"
     no_extra_spaces: yes
   loop:
-  - option: Color
-  - option: ILoveCandy
-  - option: VerbosePkgLists
+    - option: Color
+    - option: ILoveCandy
+    - option: VerbosePkgLists
 
 - name: Configure Pacman other options
   become: true
@@ -18,20 +18,20 @@
     path: /etc/pacman.conf
     mode: 0644
     section: options
-    option: '{{ item.option }}'
-    value: '{{ item.value }}'
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
     no_extra_spaces: yes
   loop:
-  - option: ParallelDownloads
-    value: 6
+    - option: ParallelDownloads
+      value: 8
 
 - name: Install pacman programs
   become: true
   community.general.pacman:
     state: present
     name:
-    - pacman-contrib
-    - rebuild-detector
+      - pacman-contrib
+      - rebuild-detector
 
 # reflector is not available for arm
 - name: Install reflector
@@ -39,5 +39,5 @@
   community.general.pacman:
     state: present
     name:
-    - reflector
+      - reflector
   when: ansible_architecture != "aarch64"
