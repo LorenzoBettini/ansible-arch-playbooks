@@ -1,14 +1,22 @@
+- name: Install Zathura PDF reader
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - zathura-pdf-poppler
+
 - name: Install Latex Packages
   become: true
   community.general.pacman:
     state: present
     name:
-    - texlive-core
-    - texlive-latexextra
-    - texlive-plaingeneric
-    - texlive-bibtexextra
-    - texlive-fontsextra
-    - texlive-science
-    - texlive-pictures
-    - texlive-langitalian # for curriculum
-    - texlive-fontutils # for repstopdf (convert eps to pdf)
+      - texlive-core
+      - texlive-latexextra
+      - texlive-plaingeneric
+      - texlive-bibtexextra
+      - texlive-fontsextra
+      - texlive-science
+      - texlive-pictures
+      - texlive-langitalian # for curriculum
+      - texlive-fontutils # for repstopdf (convert eps to pdf)
+      - texlive-binextra # for latexmk (used by vimtex)
