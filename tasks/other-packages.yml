@@ -3,47 +3,48 @@
   community.general.pacman:
     state: absent
     name:
-    - exfat-utils
+      - exfat-utils
 
 - name: Install Other Packages
   become: true
   community.general.pacman:
     state: present
     name:
-    - emacs
-    - homebank
-    - vlc
-    - aribb24 # for MPEG
-    - meld
-    - iotop
-    - lsof
-    - nethogs
-    - unrar
-    - hyphen-it
-    - hunspell-it
-    - exfatprogs
-    - ispell
-    - gimp
-    - tree
-    - plocate
-    - duf
-    - noto-fonts
-    - libappindicator-gtk3 # for Variety in Wayland
-    - variety
-    - powertop
-    - usbutils # for lsusb
-    - man-db # for man command
+      - emacs
+      - homebank
+      - vlc
+      - aribb24 # for MPEG
+      - meld
+      - iotop
+      - lsof
+      - nethogs
+      - unrar
+      - hyphen-it
+      - hunspell-it
+      - exfatprogs
+      - ispell
+      - gimp
+      - tree
+      - plocate
+      - duf
+      - noto-fonts
+      - libappindicator-gtk3 # for Variety in Wayland
+      - variety
+      - powertop
+      - usbutils # for lsusb
+      - man-db # for man command
 
 - name: Install Neovim and requirements
   become: true
   community.general.pacman:
     state: present
     name:
-    - neovim
-    - npm # required for some neovim LSPs, e.g., bashls
-    - wl-clipboard # for neovim clipboard sharing in Wayland
-    - xclip # for neovim clipboard sharing in X11
-    - lazygit
+      - neovim
+      - npm # required for some neovim LSPs, e.g., bashls
+      - wl-clipboard # for neovim clipboard sharing in Wayland
+      - xclip # for neovim clipboard sharing in X11
+      - lazygit
+      - tree-sitter-cli # required for the "latex" grammar
 
 # shellcheck is NOT available as standard package for arm
 - name: Install shellcheck
@@ -51,7 +52,7 @@
   community.general.pacman:
     state: present
     name:
-    - shellcheck # required for neovim LSP bashls
+      - shellcheck # required for neovim LSP bashls
   when: ansible_architecture != "aarch64"
 
 # shellcheck is available in AUR for arm
@@ -61,7 +62,7 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - shellcheck-bin # required for neovim LSP bashls
+      - shellcheck-bin # required for neovim LSP bashls
   when: ansible_architecture == "aarch64"
 
 - name: Enable plocate-updatedb.timer
@@ -81,14 +82,14 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - inxi
+      - inxi
 
 - name: Install Chezmoi
   become: true
   community.general.pacman:
     state: present
     name:
-    - chezmoi
+      - chezmoi
 
 - name: Install chezmoi_modify_manager aarch64
   become: true
