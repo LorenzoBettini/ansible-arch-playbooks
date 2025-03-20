@@ -51,6 +51,3 @@
     - include_tasks: tasks/vscode.yml
     - include_tasks: tasks/libreoffice.yml
     - include_tasks: tasks/other-packages.yml
-    - tags: skype
-      block:
-      - include_tasks: tasks/skype.yml
