@@ -64,6 +64,12 @@
     state: present
     name: webkit2gtk
 
+- name: Install ibus
+  become: true
+  community.general.pacman:
+    state: present
+    name: ibus # To avoid SWT crash, https://github.com/eclipse-platform/eclipse.platform.swt/issues/1937
+
 - name: Install Maven
   ansible.builtin.include_role:
     name: gantsign.maven
