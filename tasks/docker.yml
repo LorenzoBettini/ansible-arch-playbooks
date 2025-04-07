@@ -5,6 +5,7 @@
     name:
     - docker
     - docker-compose
+    - docker-buildx
 
 - name: Allow running Docker without sudo
   become: true
