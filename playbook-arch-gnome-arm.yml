@@ -42,3 +42,7 @@
     - include_tasks: tasks/visual-studio-code.yml
     - include_tasks: tasks/libreoffice.yml
     - include_tasks: tasks/other-packages.yml
+    - name: Include additional fonts task
+      import_tasks: tasks/additional-fonts.yml
+      tags:
+        - additional-fonts

@@ -68,3 +68,7 @@
     - tags: latex
       block:
       - include_tasks: tasks/latex.yml
+    - name: Include additional fonts task
+      import_tasks: tasks/additional-fonts.yml
+      tags:
+        - additional-fonts
