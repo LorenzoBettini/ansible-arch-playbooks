@@ -1,6 +1,0 @@
-- name: Install Gnome Extension Manager
-  become: true
-  community.general.flatpak:
-    name: com.mattjakeman.ExtensionManager
-    state: present
-#    method: user
