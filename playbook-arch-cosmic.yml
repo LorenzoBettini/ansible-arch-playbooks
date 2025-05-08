@@ -1,0 +1,55 @@
+---
+- hosts: all
+  name: Arch Cosmic Playbook
+  pre_tasks:
+    - name: System details
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      with_items: 
+      - "{{ ansible_distribution }}"
+      - "{{ ansible_distribution_release }}"
+      - "{{ ansible_distribution_version }}"
+      - "{{ ansible_distribution_major_version }}"
+    - name: Update repositories
+      become: true
+      community.general.pacman:
+        update_cache: True
+      changed_when: False
+  tasks:
+    - tags: aur
+      block:
+      - include_tasks: tasks/aur-user.yml
+    - include_tasks: tasks/pacman.yml
+    - include_tasks: tasks/git.yml
+    - include_tasks: tasks/yay.yml 
+    - include_tasks: tasks/pacman-aur.yml
+    - include_tasks: tasks/update-grub.yml
+    - include_tasks: tasks/main-packages.yml
+    - include_tasks: tasks/firewall.yml
+    - include_tasks: tasks/printing.yml
+    - name: Install Oh My Zsh
+      ansible.builtin.include_role:
+        name: lorenzobettini.oh_my_zsh
+      vars:
+        with_starship: false
+        copy_dot_files: false
+    - block:
+      - include_tasks: tasks/java-packages.yml
+      tags: java
+    - include_tasks: tasks/google-chrome.yml
+    - include_tasks: tasks/dropbox.yml
+    - tags: docker
+      block:
+      - include_tasks: tasks/docker.yml
+    - include_tasks: tasks/cronie.yml
+    - include_tasks: tasks/recoll.yml
+    - include_tasks: tasks/visual-studio-code.yml
+    - include_tasks: tasks/libreoffice.yml
+    - include_tasks: tasks/other-packages.yml
+    - tags: latex
+      block:
+      - include_tasks: tasks/latex.yml
+    - name: Include additional fonts task
+      import_tasks: tasks/additional-fonts.yml
+      tags:
+        - additional-fonts
