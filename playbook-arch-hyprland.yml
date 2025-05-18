@@ -5,11 +5,11 @@
     - name: System details
       ansible.builtin.debug:
         msg: "{{ item }}"
-      with_items: 
-      - "{{ ansible_distribution }}"
-      - "{{ ansible_distribution_release }}"
-      - "{{ ansible_distribution_version }}"
-      - "{{ ansible_distribution_major_version }}"
+      with_items:
+        - "{{ ansible_distribution }}"
+        - "{{ ansible_distribution_release }}"
+        - "{{ ansible_distribution_version }}"
+        - "{{ ansible_distribution_major_version }}"
     - name: Update repositories
       become: true
       community.general.pacman:
@@ -19,7 +19,7 @@
     - include_tasks: tasks/aur-user.yml
     - include_tasks: tasks/pacman.yml
     - include_tasks: tasks/git.yml
-    - include_tasks: tasks/yay.yml 
+    - include_tasks: tasks/yay.yml
     - include_tasks: tasks/pacman-aur.yml
     - include_tasks: tasks/update-grub.yml
     - include_tasks: tasks/main-packages.yml
@@ -38,17 +38,18 @@
         copy_dot_files: false
     - tags: java
       block:
-      - include_tasks: tasks/java-packages.yml
+        - include_tasks: tasks/java-packages.yml
     - include_tasks: tasks/google-chrome.yml
     - tags: dropbox
       block:
-      - include_tasks: tasks/dropbox.yml
+        - include_tasks: tasks/dropbox.yml
     - tags: docker
       block:
-      - include_tasks: tasks/docker.yml
+        - include_tasks: tasks/docker.yml
     - include_tasks: tasks/cronie.yml
     - include_tasks: tasks/recoll.yml
-    - include_tasks: tasks/vscode.yml
+    # - include_tasks: tasks/vscode.yml
+    - include_tasks: tasks/visual-studio-code.yml
     - include_tasks: tasks/libreoffice.yml
     - include_tasks: tasks/other-packages.yml
     - name: Include additional fonts task
