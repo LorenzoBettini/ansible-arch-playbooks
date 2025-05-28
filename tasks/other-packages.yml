@@ -44,6 +44,7 @@
       - wl-clipboard # for neovim clipboard sharing in Wayland
       - xclip # for neovim clipboard sharing in X11
       - lazygit
+      - git-delta
       - tree-sitter-cli # required for the "latex" grammar
 
 # shellcheck is NOT available as standard package for arm
