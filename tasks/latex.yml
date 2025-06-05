@@ -1,9 +1,24 @@
-- name: Install Zathura PDF reader
+# - name: Install Zathura PDF reader
+#   become: true
+#   community.general.pacman:
+#     state: present
+#     name:
+#       - zathura-pdf-poppler
+
+- name: Install Sioyek requirements
   become: true
-  community.general.pacman:
+  ansible.builtin.package:
     state: present
     name:
-      - zathura-pdf-poppler
+      - tesseract-data-ita
+      - tesseract-data-eng
+
+- name: Install Sioyek
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    state: present
+    name: sioyek
 
 - name: Install Latex Packages
   become: true
