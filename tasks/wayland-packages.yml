@@ -3,23 +3,23 @@
   community.general.pacman:
     state: present
     name:
-    - polkit-kde-agent
-    - grim
-    - wl-clipboard
-    - cliphist
-    - slurp
-    - swaybg
-    - brightnessctl
-    - swayidle
-    - swaylock
-    - otf-font-awesome
-    - wmctrl
-    - network-manager-applet
-    - libnotify
-    - mako
-    - gnome-themes-extra
-    - archlinux-xdg-menu
-    - xorg-xwayland
+      - polkit-kde-agent
+      - grim
+      - wl-clipboard
+      - cliphist
+      - slurp
+      - swaybg
+      - brightnessctl
+      - swayidle
+      - swaylock
+      - otf-font-awesome
+      - wmctrl
+      - network-manager-applet
+      - libnotify
+      - mako
+      - gnome-themes-extra
+      - archlinux-xdg-menu
+      - xorg-xwayland
 
 # required by the waybar keyboard-state module
 - name: Add user to group input
@@ -35,25 +35,17 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - wlogout
-    - nwg-look-bin
-
-- name: Install Terminals
-  become: true
-  community.general.pacman:
-    state: present
-    name:
-    - kitty
-    - alacritty
+      - wlogout
+      - nwg-look-bin
 
 - name: Install Nemo
   become: true
   community.general.pacman:
     state: present
     name:
-    - nemo
-    - nemo-fileroller
-    - python-psutil # Actually required by the following dconf task
+      - nemo
+      - nemo-fileroller
+      - python-psutil # Actually required by the following dconf task
 
 - name: Set kitty as Nemo terminal
   community.general.dconf:
@@ -65,7 +57,7 @@
   community.general.pacman:
     state: present
     name:
-    - waybar
+      - waybar
 
 #- name: Install Waybar
 #  become: true
@@ -81,7 +73,7 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - rofi-lbonn-wayland-git
+      - rofi-lbonn-wayland-git
   when: ansible_architecture == "aarch64"
 
 - name: Install Rofi Wayland
@@ -89,7 +81,7 @@
   community.general.pacman:
     state: present
     name:
-    - rofi-wayland
+      - rofi-wayland
   when: ansible_architecture != "aarch64"
 
 - name: Install Additional packages for KDE
@@ -97,8 +89,8 @@
   community.general.pacman:
     state: present
     name:
-    - ttf-hack
-    - qt5ct
+      - ttf-hack
+      - qt5ct
 
 - name: Install patched qt6ct for KDE
   become: true
@@ -106,4 +98,4 @@
   kewlfft.aur.aur:
     state: present
     name:
-    - qt6ct-kde
+      - qt6ct-kde

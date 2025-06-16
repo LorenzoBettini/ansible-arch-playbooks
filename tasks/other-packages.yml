@@ -66,6 +66,14 @@
       - shellcheck-bin # required for neovim LSP bashls
   when: ansible_architecture == "aarch64"
 
+- name: Install Terminals
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - kitty
+      - alacritty
+
 - name: Enable plocate-updatedb.timer
   become: true
   ansible.builtin.systemd:
