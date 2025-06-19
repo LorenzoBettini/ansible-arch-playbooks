@@ -84,6 +84,14 @@
       - rofi-wayland
   when: ansible_architecture != "aarch64"
 
+# This is required to use libsecret as an helper for git
+- name: Install gnome-keyring
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - gnome-keyring
+
 - name: Install Additional packages for KDE
   become: true
   community.general.pacman:
