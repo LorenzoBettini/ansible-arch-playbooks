@@ -16,6 +16,14 @@
     - dolphin-plugins
     - ark
 
+# Not installed by default
+- name: Install X11 KDE session
+  become: True
+  community.general.pacman:
+    state: present
+    name:
+    - plasma-x11-session
+
 # We don't want baloo outside KDE, but gwenview installs it
 - name: Disable baloo
   ansible.builtin.shell: balooctl disable
