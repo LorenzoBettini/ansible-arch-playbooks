@@ -13,6 +13,7 @@
       - emacs
       - homebank
       - vlc
+      - vlc-plugins-all
       - aribb24 # for MPEG
       - meld
       - iotop
