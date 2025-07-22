@@ -5,12 +5,12 @@
     - name: System details
       ansible.builtin.debug:
         msg: "{{ item }}"
-      with_items: 
-      - "{{ ansible_distribution }}"
-      - "{{ ansible_distribution_release }}"
-      - "{{ ansible_distribution_version }}"
-      - "{{ ansible_distribution_major_version }}"
-      - "{{ ansible_architecture }}"
+      with_items:
+        - "{{ ansible_distribution }}"
+        - "{{ ansible_distribution_release }}"
+        - "{{ ansible_distribution_version }}"
+        - "{{ ansible_distribution_major_version }}"
+        - "{{ ansible_architecture }}"
     - name: Update repositories
       become: True
       community.general.pacman:
@@ -20,7 +20,7 @@
     - include_tasks: tasks/aur-user.yml
     - include_tasks: tasks/pacman.yml
     - include_tasks: tasks/git.yml
-    - include_tasks: tasks/yay.yml 
+    - include_tasks: tasks/yay.yml
     - include_tasks: tasks/pacman-aur.yml
     - include_tasks: tasks/main-packages.yml
     - include_tasks: tasks/power-profiles.yml
@@ -30,6 +30,7 @@
       vars:
         with_konsole_profiles: false
         modify_ini_files: false
+    - include_tasks: tasks/kde-x11-session.yml
     - name: Install Oh My Zsh
       ansible.builtin.include_role:
         name: lorenzobettini.oh_my_zsh

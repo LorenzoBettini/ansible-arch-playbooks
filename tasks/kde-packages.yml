@@ -4,25 +4,17 @@
   community.general.pacman:
     state: present
     name:
-    - kate
-    - gwenview
-    - konsole
-    - breeze-icons
-    - breeze
-    - kvantum
-    - okular
-    - kcalc
-    - dolphin
-    - dolphin-plugins
-    - ark
-
-# Not installed by default
-- name: Install X11 KDE session
-  become: True
-  community.general.pacman:
-    state: present
-    name:
-    - plasma-x11-session
+      - kate
+      - gwenview
+      - konsole
+      - breeze-icons
+      - breeze
+      - kvantum
+      - okular
+      - kcalc
+      - dolphin
+      - dolphin-plugins
+      - ark
 
 # We don't want baloo outside KDE, but gwenview installs it
 - name: Disable baloo
