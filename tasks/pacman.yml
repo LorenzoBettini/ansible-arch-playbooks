@@ -23,7 +23,7 @@
     no_extra_spaces: yes
   loop:
     - option: ParallelDownloads
-      value: 8
+      value: 10
 
 - name: Install pacman programs
   become: true
