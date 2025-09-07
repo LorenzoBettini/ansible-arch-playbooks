@@ -76,12 +76,12 @@
       - rofi-lbonn-wayland-git
   when: ansible_architecture == "aarch64"
 
-- name: Install Rofi Wayland
+- name: Install Rofi
   become: true
   community.general.pacman:
     state: present
     name:
-      - rofi-wayland
+      - rofi
   when: ansible_architecture != "aarch64"
 
 # This is required to use libsecret as an helper for git
