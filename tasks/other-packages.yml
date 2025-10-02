@@ -102,10 +102,14 @@
     name:
       - chezmoi
 
+- name: Set chezmoi_modify_manager version
+  set_fact:
+    chezmoi_modify_manager_version: "3.5.3"
+
 - name: Install chezmoi_modify_manager aarch64
   become: true
   ansible.builtin.unarchive:
-    src: "https://github.com/VorpalBlade/chezmoi_modify_manager/releases/download/v3.3.0/chezmoi_modify_manager-v3.3.0-aarch64-unknown-linux-gnu.tar.gz"
+    src: "https://github.com/VorpalBlade/chezmoi_modify_manager/releases/download/v{{ chezmoi_modify_manager_version }}/chezmoi_modify_manager-v{{ chezmoi_modify_manager_version }}-aarch64-unknown-linux-gnu.tar.gz"
     dest: /usr/local/bin
     remote_src: true
   when: ansible_architecture == "aarch64"
@@ -113,7 +117,7 @@
 - name: Install chezmoi_modify_manager x86_64
   become: true
   ansible.builtin.unarchive:
-    src: "https://github.com/VorpalBlade/chezmoi_modify_manager/releases/download/v3.3.0/chezmoi_modify_manager-v3.3.0-x86_64-unknown-linux-gnu.tar.gz"
+    src: "https://github.com/VorpalBlade/chezmoi_modify_manager/releases/download/v{{ chezmoi_modify_manager_version }}/chezmoi_modify_manager-v{{ chezmoi_modify_manager_version }}-x86_64-unknown-linux-gnu.tar.gz"
     dest: /usr/local/bin
     remote_src: true
   when: ansible_architecture != "aarch64"

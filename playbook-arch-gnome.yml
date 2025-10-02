@@ -63,7 +63,9 @@
     - include_tasks: tasks/recoll.yml
     - include_tasks: tasks/visual-studio-code.yml
     - include_tasks: tasks/libreoffice.yml
-    - include_tasks: tasks/other-packages.yml
+    - tags: other-packages
+      block:
+      - include_tasks: tasks/other-packages.yml
     - include_tasks: tasks/patch-xdg-autostart.yml
     - tags: latex
       block:
