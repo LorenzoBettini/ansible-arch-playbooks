@@ -7,7 +7,7 @@
     - curl
     - wget
     - curl
-    - gkrellm
+    # - gkrellm # not in Arch repos anymore due to EOL of gtk2; available in AUR
     - net-tools
     - unison
     - firefox
