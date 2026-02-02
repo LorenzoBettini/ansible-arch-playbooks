@@ -56,7 +56,7 @@
     state: present
     name:
       - shellcheck # required for neovim LSP bashls
-  when: ansible_architecture != "aarch64"
+  when: ansible_facts['architecture'] != "aarch64"
 
 # shellcheck is available in AUR for arm
 - name: Install shellcheck from AUR
@@ -66,7 +66,7 @@
     state: present
     name:
       - shellcheck-bin # required for neovim LSP bashls
-  when: ansible_architecture == "aarch64"
+  when: ansible_facts['architecture'] == "aarch64"
 
 - name: Install Terminals
   become: true
@@ -112,7 +112,7 @@
     src: "https://github.com/VorpalBlade/chezmoi_modify_manager/releases/download/v{{ chezmoi_modify_manager_version }}/chezmoi_modify_manager-v{{ chezmoi_modify_manager_version }}-aarch64-unknown-linux-gnu.tar.gz"
     dest: /usr/local/bin
     remote_src: true
-  when: ansible_architecture == "aarch64"
+  when: ansible_facts['architecture'] == "aarch64"
 
 - name: Install chezmoi_modify_manager x86_64
   become: true
@@ -120,4 +120,4 @@
     src: "https://github.com/VorpalBlade/chezmoi_modify_manager/releases/download/v{{ chezmoi_modify_manager_version }}/chezmoi_modify_manager-v{{ chezmoi_modify_manager_version }}-x86_64-unknown-linux-gnu.tar.gz"
     dest: /usr/local/bin
     remote_src: true
-  when: ansible_architecture != "aarch64"
+  when: ansible_facts['architecture'] != "aarch64"

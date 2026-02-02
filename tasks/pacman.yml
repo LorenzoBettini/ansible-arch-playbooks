@@ -40,4 +40,4 @@
     state: present
     name:
       - reflector
-  when: ansible_architecture != "aarch64"
+  when: ansible_facts['architecture'] != "aarch64"
