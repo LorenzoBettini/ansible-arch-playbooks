@@ -4,7 +4,7 @@
     state: present
     name:
     - firewalld
-    - python-pyqt5 # for firewall-applet
+    - firewall-applet
 
 - name: Enable firewalld
   become: true
