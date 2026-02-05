@@ -5,20 +5,20 @@
 #     name:
 #       - zathura-pdf-poppler
 
-- name: Install Sioyek requirements
-  become: true
-  ansible.builtin.package:
-    state: present
-    name:
-      - tesseract-data-ita
-      - tesseract-data-eng
+# - name: Install Sioyek requirements
+#   become: true
+#   ansible.builtin.package:
+#     state: present
+#     name:
+#       - tesseract-data-ita
+#       - tesseract-data-eng
 
 - name: Install Sioyek
   become: true
   become_user: aur_builder
   kewlfft.aur.aur:
     state: present
-    name: sioyek
+    name: sioyek-appimage
 
 - name: Install Latex Packages
   become: true
