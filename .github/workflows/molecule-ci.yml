@@ -26,6 +26,7 @@ jobs:
           - arch-kde
           - arch-hyprland
           - arch-sway
+          - arch-multi
 
     steps:
       - name: Check out the codebase.
