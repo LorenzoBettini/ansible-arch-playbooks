@@ -8,7 +8,7 @@
     - cups-pdf
     - cups-pk-helper
     - libcups
-    - splix
+    # - splix # removed from repos: printer drivers for SPL (Samsung Printer Language) printers
     - system-config-printer
     - avahi
     - nss-mdns # host name resolution via mDNS
