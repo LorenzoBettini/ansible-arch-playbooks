@@ -62,7 +62,7 @@
   become: true
   community.general.pacman:
     state: present
-    name: webkit2gtk
+    name: webkit2gtk-4.1
 
 - name: Install ibus
   become: true
