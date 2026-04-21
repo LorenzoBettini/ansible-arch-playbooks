@@ -1,6 +1,6 @@
 - name: Install Main Packages
   become: True
-  community.general.pacman:
+  ansible.builtin.package:
     state: present
     name:
     - base-devel
@@ -16,3 +16,20 @@
     - dnsutils
     - rsync # required by Molecule when building a Docker image
     - stow
+    - zsh
+    - gnupg
+
+- name: Install CLI tools
+  become: True
+  ansible.builtin.package:
+    state: present
+    name:
+    - ripgrep
+    - procs
+    - unzip
+    - dust
+    - eza
+    - fd
+    - bat
+    - zoxide
+    - fzf
