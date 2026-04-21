@@ -30,12 +30,6 @@
     - include_tasks: tasks/firewall.yml
     - include_tasks: tasks/printing.yml
     - include_tasks: tasks/flatpak.yml
-    - name: Install Oh My Zsh
-      ansible.builtin.include_role:
-        name: lorenzobettini.oh_my_zsh
-      vars:
-        with_starship: false
-        copy_dot_files: false
     - tags: java
       block:
         - include_tasks: tasks/java-packages.yml

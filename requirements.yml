@@ -3,8 +3,6 @@ roles:
   # Install a role from Ansible Galaxy.
   - name: gantsign.maven
   # Install my own roles from GitHub
-  - name: lorenzobettini.oh_my_zsh
-    src: https://github.com/LorenzoBettini/ansible-molecule-oh-my-zsh-example/
   - name: lorenzobettini.my_gnome_role
     src: https://github.com/LorenzoBettini/my_gnome_role/
   - name: lorenzobettini.my_kde_role
