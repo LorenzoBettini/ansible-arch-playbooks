@@ -35,3 +35,10 @@
       - texlive-langitalian # for curriculum
       - texlive-fontutils # for repstopdf (convert eps to pdf)
       - texlive-binextra # for latexmk (used by vimtex)
+
+- name: Install Other Packages for Latex
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+      - graphviz
