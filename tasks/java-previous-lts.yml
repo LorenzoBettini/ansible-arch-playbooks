@@ -12,9 +12,9 @@
   community.general.pacman:
     state: present
     name:
-    - jdk17-openjdk
-    - openjdk17-src
-#    - openjdk11-doc # This is only on AUR on Arm
+    - jdk21-openjdk
+    - openjdk21-src
+    - openjdk21-doc
 
 - name: Create Java links directory
   ansible.builtin.file:
@@ -28,8 +28,9 @@
     dest: '~/.jdk/jdk{{ item }}'
     state: link
   loop:
-    - 17
+    - 21
 
-- name: Install Maven
-  ansible.builtin.include_role:
-    name: gantsign.maven
+# Maven is now installed via chezmoi
+# - name: Install Maven
+#   ansible.builtin.include_role:
+#     name: gantsign.maven

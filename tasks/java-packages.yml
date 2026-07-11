@@ -21,6 +21,9 @@
   community.general.pacman:
     state: present
     name:
+    - jdk25-openjdk
+    - openjdk25-src
+    - openjdk25-doc
     - jdk21-openjdk
     - openjdk21-src
     - openjdk21-doc
@@ -50,6 +53,7 @@
     - 11
     - 17
     - 21
+    - 25
 
 - name: Remove old Java links
   ansible.builtin.file:
@@ -70,6 +74,7 @@
     state: present
     name: ibus # To avoid SWT crash, https://github.com/eclipse-platform/eclipse.platform.swt/issues/1937
 
-- name: Install Maven
-  ansible.builtin.include_role:
-    name: gantsign.maven
+# Maven is now installed via chezmoi
+# - name: Install Maven
+#   ansible.builtin.include_role:
+#     name: gantsign.maven
