@@ -1,0 +1,80 @@
+# Enable it when a non LTS is released
+- name: Remove Java Package without version
+  become: true
+  community.general.pacman:
+    state: absent
+    name:
+    - jdk-openjdk # This is now JDK 22
+    - openjdk-src
+    - openjdk-doc
+
+- name: Remove Old Java Packages
+  become: true
+  community.general.pacman:
+    state: absent
+    name:
+    - jre17-openjdk-headless
+    - jre11-openjdk-headless
+
+- name: Install Java Packages
+  become: true
+  community.general.pacman:
+    state: present
+    name:
+    - jdk25-openjdk
+    - openjdk25-src
+    - openjdk25-doc
+    - jdk21-openjdk
+    - openjdk21-src
+    - openjdk21-doc
+    - jdk17-openjdk # the first one will be the default
+    - openjdk17-src
+    - openjdk17-doc
+    - jdk8-openjdk
+    - openjdk8-src
+    - openjdk8-doc
+    - jdk11-openjdk
+    - openjdk11-src
+    - openjdk11-doc
+
+- name: Create Java links directory
+  ansible.builtin.file:
+    path: '~/.jdk'
+    state: directory
+    mode: 0775
+
+- name: Create Java links
+  ansible.builtin.file:
+    src: '/usr/lib/jvm/java-{{ item }}-openjdk'
+    dest: '~/.jdk/jdk{{ item }}'
+    state: link
+  loop:
+    - 8
+    - 11
+    - 17
+    - 21
+    - 25
+
+- name: Remove old Java links
+  ansible.builtin.file:
+    path: '~/.jdk/jdk{{ item }}'
+    state: absent
+  loop:
+    - 16
+
+- name: Install webkit2gtk (for Eclipse SWT Browser)
+  become: true
+  community.general.pacman:
+    state: present
+    name: webkit2gtk-4.1
+
+- name: Install ibus
+  become: true
+  community.general.pacman:
+    state: present
+    name: ibus # To avoid SWT crash, https://github.com/eclipse-platform/eclipse.platform.swt/issues/1937
+
+# Maven is now installed via chezmoi
+# - name: Install Maven
+#   ansible.builtin.include_role:
+#     name: gantsign.maven
