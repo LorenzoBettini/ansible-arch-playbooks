@@ -35,7 +35,9 @@
     - include_tasks: tasks/kde-x11-session.yml
     - include_tasks: tasks/wayland-packages.yml
     - include_tasks: tasks/sway-packages.yml
+      tags: sway
     - include_tasks: tasks/hyprland-packages.yml
+      tags: hyprland
     - include_tasks: tasks/flatpak.yml
     - block:
         - include_tasks: tasks/java-packages.yml
