@@ -40,6 +40,12 @@ ansible-playbook -i local -v playbook-arch-multi.yml -K --skip-tags hyprland
 ansible-playbook -i local -v playbook-arch-multi.yml -K --skip-tags sway,hyprland
 ```
 
+For playbooks, to run only a specific task, e.g., install Java JDKs:
+
+```
+ansible-playbook -i local -v playbook-arch-kde.yml -K --tags java
+```
+
 For local quick testing of single tasks, include them in `test-tasks-playbook.yml` and then:
 
 ```
