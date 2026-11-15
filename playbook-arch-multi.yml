@@ -32,7 +32,6 @@
       vars:
         with_konsole_profiles: false
         modify_ini_files: false
-    - include_tasks: tasks/kde-x11-session.yml
     - include_tasks: tasks/wayland-packages.yml
     - include_tasks: tasks/sway-packages.yml
       tags: sway
