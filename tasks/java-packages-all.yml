@@ -73,8 +73,3 @@
   community.general.pacman:
     state: present
     name: ibus # To avoid SWT crash, https://github.com/eclipse-platform/eclipse.platform.swt/issues/1937
-
-# Maven is now installed via chezmoi
-# - name: Install Maven
-#   ansible.builtin.include_role:
-#     name: gantsign.maven
