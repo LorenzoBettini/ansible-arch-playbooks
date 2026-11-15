@@ -29,8 +29,3 @@
     state: link
   loop:
     - 25
-
-# Maven is now installed via chezmoi
-# - name: Install Maven
-#   ansible.builtin.include_role:
-#     name: gantsign.maven
