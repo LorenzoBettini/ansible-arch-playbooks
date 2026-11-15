@@ -27,6 +27,7 @@ provisioner:
   name: ansible
   log: true
   playbooks:
-    converge: ../${MOLECULE_DISTRO:-arch-gnome}/converge.yml
+    converge: converge.yml
+    verify: ../shared/verify.yml
 verifier:
   name: ansible

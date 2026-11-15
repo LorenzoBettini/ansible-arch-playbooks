@@ -1,0 +1,33 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: arch-instance
+    image: arch-ansible
+    platform: ${DOCKER_DEFAULT_PLATFORM:-linux/amd64}
+    dockerfile: ../docker/Dockerfile
+    command: /usr/sbin/init
+    tmpfs:
+      - /run
+      - /tmp
+    capabilities:
+      - SYS_ADMIN
+      - NET_ADMIN
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    cgroupns_mode: host
+    privileged: true
+provisioner:
+  name: ansible
+  log: true
+  playbooks:
+    converge: converge.yml
+    verify: ../shared/verify.yml
+verifier:
+  name: ansible

@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        playbookdistro:
+        scenario:
           - arch-gnome
           - arch-kde
           - arch-hyprland
@@ -47,8 +47,7 @@ jobs:
           ansible-lint --version
 
       - name: Run Molecule tests.
-        run: molecule test
+        run: molecule test --scenario-name=${{ matrix.scenario }}
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.playbookdistro }}
