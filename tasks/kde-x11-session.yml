@@ -1,7 +1,3 @@
-# Not installed by default
-- name: Install X11 KDE session
-  become: True
-  community.general.pacman:
-    state: present
-    name:
-      - plasma-x11-session
+---
+# Arch no longer provides an X11 KDE session package.
+[]
